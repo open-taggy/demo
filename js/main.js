@@ -1,33 +1,29 @@
-import { taggy } from "../../taggy-base/taggy/lib/index";
+import { Taggy } from "../../taggy-base/taggy/lib/index";
 
-// console.log(taggy);
-// import Tagify from "@yaireo/tagify";
+// create instance of taggy
+let taggyObject = new Taggy();
 
-// const Tagify = window.tagify;
-// let myCanvas = create("myCanvas", document.body, 480, 320);
-// let reportList = createReportList(myCanvas.id);
+console.log(taggyObject.hello());
 
-// let square1 = draw(myCanvas.ctx, 50, 50, 100, "blue");
-// reportArea(square1.length, reportList);
-// reportPerimeter(square1.length, reportList);
-
-// // Use the default
-// let square2 = randomSquare(myCanvas.ctx);
-
-let divWrapper = document.createElement("div");
-divWrapper.id = "results";
-let outputField = document.createElement("input");
-outputField.id = "output";
-divWrapper.appendChild(outputField);
-document.body.appendChild(divWrapper);
+// setup HTML
+// let divWrapper = document.createElement("div");
+// divWrapper.id = "results";
+// let outputField = document.createElement("input");
+// outputField.id = "output";
+// divWrapper.appendChild(outputField);
+// document.body.appendChild(divWrapper);
 
 // frequency output
-let frequencySpan = document.createElement("span");
-divWrapper.appendChild(frequencySpan);
+// let frequencySpan = document.createElement("span");
+// divWrapper.appendChild(frequencySpan);
 
-let outputFieldForTagify = document.getElementById("output");
-// var tagify = new Tagify(outputFieldForTagify);
-let myTaggy = taggyCreate("myTaggy", document.body, outputFieldForTagify);
+let outputFieldForTaggy = document.getElementById("output");
+console.log(outputFieldForTaggy);
+
+taggyObject.setOutputField(outputFieldForTaggy);
+
+// var tagify = new Tagify(outputFieldForTaggy);
+taggyCreate("myTaggy", document.body, outputFieldForTaggy);
 
 // loading animation
 let divWrapperLoading = document.createElement("div");
@@ -36,9 +32,10 @@ divWrapperLoading.style.display = "none";
 
 document.getElementById("myTaggy").appendChild(divWrapperLoading);
 
-function taggyCreate(id, parent, outputFieldForTagify) {
+function taggyCreate(id, parent, outputFieldForTaggy) {
   let divWrapper = document.createElement("div");
   let inputField = document.createElement("textarea");
+  taggyObject.setInputField(inputField);
   divWrapper.setAttribute("type", "text");
   divWrapper.appendChild(inputField);
   divWrapper.id = id;
@@ -64,25 +61,29 @@ function taggyCreate(id, parent, outputFieldForTagify) {
       // console.log(inputField.value);
 
       // createSimpleTag(taggy.taggyVanilla(inputField.value));
-      let result = await taggy.processInput(inputField.value);
+      let result = await taggyObject.processInput(inputField.value);
       divWrapperLoading.style.display = "none";
 
-      // console.log("RESULT", result);
+      taggyObject.processAndAddTags(inputField.value, outputFieldForTaggy);
 
-      // tagify.addTags(result);
-      // tagify.addTags("yes");
-      let inputElementForTagify = await taggy.createTagify(
-        outputFieldForTagify
-      );
-      await taggy.deleteTags();
+      // let inputElementForTagify = await taggyObject.createTagify(
+      //   outputFieldForTaggy
+      // );
+
+      // await taggyObject.deleteTags();
 
       console.log("result", result);
       console.log("result.length", result.length);
       if (!result.includes(undefined)) {
-        let addedTag = await taggy.addTags(result);
+        // let addedTag = await taggyObject.addTags(result);
+
+        // outputFieldForTaggy.value = result;
+
+        let frequencySpan = document.getElementById("frequency");
+        console.log("FREQ", frequencySpan);
 
         frequencySpan.innerHTML =
-          "top candidates: " + (await taggy.getMostFrequent().join(" "));
+          "top candidates: " + (await taggyObject.getMostFrequent().join(" "));
       } else {
         frequencySpan.innerHTML = "No match with glossar";
       }
@@ -95,25 +96,4 @@ function taggyCreate(id, parent, outputFieldForTagify) {
       inputField: inputField,
     };
   });
-
-  function createSimpleTag(value) {
-    // let tagDivWrapper = document.createElement("div");
-    // let pField = document.createElement("p");
-    // tagDivWrapper.appendChild(pField);
-    // console.log(pField);
-    // pField.innerText = value;
-    // pField.style.border = "solid 1px black";
-    // let myTaggy = document.getElementById("myTaggy");
-    // console.log(myTaggy);
-
-    // myTaggy.appendChild(tagDivWrapper);
-
-    // tagify.addTags([
-    //   { value: "banana", color: "yellow" },
-    //   { value: "apple", color: "red" },
-    //   { value: "watermelon", color: "green" },
-    // ]);
-
-    tagify.addTags([{ value: value, color: "yellow" }]);
-  }
 }
