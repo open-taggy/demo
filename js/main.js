@@ -41,7 +41,7 @@ inputFieldForTaggy.addEventListener("input", async function (event) {
       let frequencySpan = document.getElementById("frequency");
 
       frequencySpan.innerHTML =
-        "top candidates: " + (await taggyObject.getMostFrequent().join(" "));
+        "top candidates: " + (await taggyObject.getMostFrequent().join(", "));
     } else {
       frequencySpan.innerHTML = "No match with glossar";
     }
