@@ -37,9 +37,8 @@ inputFieldForTaggy.addEventListener("input", async function (event) {
       outputFieldForTaggy
     );
 
+    let frequencySpan = document.getElementById("frequency");
     if (result && !result.includes(undefined)) {
-      let frequencySpan = document.getElementById("frequency");
-
       frequencySpan.innerHTML =
         "top candidates: " + (await taggyObject.getMostFrequent().join(", "));
     } else {
