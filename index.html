@@ -19,13 +19,7 @@
     <link rel="stylesheet" href="css/main.css" />
 
     <meta name="theme-color" content="#fafafa" />
-  </head>
 
-  <body>
-    <!-- Add your site or application content here -->
-    <h2>Welcome to taggy</h2>
-    <img src="/img/logo.png" alt="" />
-    <p>Please enter your text:</p>
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
 
@@ -36,16 +30,29 @@
       rel="stylesheet"
       type="text/css"
     />
- 
+  </head>
 
-    <div id="results">
-      <input id="taggyOutput" type="text" />
-      <span id="frequency"></span>
+  <body>
+    <!-- Add your site or application content here -->
+    <h2>Welcome to taggy</h2>
+    <div class="flexbox">
+      <div class="wrapper-logo">
+        <img src="/img/logo.png" alt="" />
+      </div>
+      <div>
+        <div class="wrapper-category">
+          <p class="bold-center">Kategorie:</p>
+          <div id="results">
+            <input id="taggyOutput" type="text" />
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="myTaggy" type="text">
-      <textarea name="" id="taggyInput" cols="30" rows="10"></textarea>
+      <textarea name="" id="taggyInput" cols="50" rows="8"></textarea>
     </div>
+    <span id="frequency"></span>
 
     <script src="js/main.js"></script>
   </body>

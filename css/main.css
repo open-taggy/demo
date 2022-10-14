@@ -59,6 +59,29 @@ span {
   }
 }
 
+.flexbox {
+  display: flex;
+}
+
+.wrapper-logo {
+  width: 200px;
+  height: 200px;
+}
+
+.wrapper-category {
+  width: 300px;
+}
+
+.bold-center {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#results {
+  background-color: white;
+}
+
 /* CUSTOM END*/
 /* CUSTOM END*/
 
