@@ -40,13 +40,14 @@ span {
   padding-left: 20px;
 }
 
-.loader {
+#loader {
   margin-left: 0;
   border: 20px solid #eaf0f6;
   border-radius: 50%;
   border-top: 20px solid #ff7a59;
-  width: 100px;
-  height: 100px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
   animation: spinner 4s linear infinite;
 }
 

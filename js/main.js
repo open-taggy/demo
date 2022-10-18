@@ -14,10 +14,11 @@ taggyObject.setOutputField(outputFieldForTaggy);
 console.log(outputFieldForTaggy);
 
 // loading animation
-let divWrapperLoading = document.createElement("div");
-divWrapperLoading.className = "loader";
-divWrapperLoading.style.display = "none";
-document.getElementById("myTaggy").appendChild(divWrapperLoading);
+let loader = document.getElementById("loader");
+// let divWrapperLoading = document.createElement("div");
+// divWrapperLoading.className = "loader";
+// divWrapperLoading.style.display = "none";
+// document.getElementById("myTaggy").appendChild(divWrapperLoading);
 
 let timeout = null;
 
@@ -27,15 +28,15 @@ inputFieldForTaggy.addEventListener("input", async function (event) {
 
   // make a new timeout set to go off in 1000ms
   timeout = setTimeout(async function () {
-    divWrapperLoading.style.display = "block";
+    loader.style.display = "block";
     // createSimpleTag(taggy.taggyVanilla(inputField.value));
     // let result = await taggyObject.processInput(inputFieldForTaggy.value);
-    divWrapperLoading.style.display = "none";
 
     let result = await taggyObject.processAndAddTags(
       inputFieldForTaggy.value,
       outputFieldForTaggy
     );
+    loader.style.display = "none";
 
     let frequencySpan = document.getElementById("frequency");
     if (result && !result.includes(undefined)) {
