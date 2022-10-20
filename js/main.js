@@ -1,17 +1,26 @@
 import { Taggy } from "../../taggy-base/taggy/lib/index";
 
 // create instance of taggy
-let taggyObject = new Taggy();
+// let taggyObject = new Taggy();
 
 // set input field for taggy
 let inputFieldForTaggy = document.getElementById("taggyInput");
-taggyObject.setInputField(inputFieldForTaggy);
-console.log(inputFieldForTaggy);
+// taggyObject.setInputField(inputFieldForTaggy);
+// console.log(inputFieldForTaggy);
 
-// set output field for taggy
+// // set output field for taggy
 let outputFieldForTaggy = document.getElementById("taggyOutput");
-taggyObject.setOutputField(outputFieldForTaggy);
-console.log(outputFieldForTaggy);
+// taggyObject.setOutputField(outputFieldForTaggy);
+// console.log(outputFieldForTaggy);
+
+let frequencySpan = document.getElementById("frequency");
+
+let taggyObject = new Taggy(
+  inputFieldForTaggy,
+  outputFieldForTaggy,
+  frequencySpan,
+  true
+);
 
 // loading animation
 let loader = document.getElementById("loader");
@@ -38,7 +47,6 @@ inputFieldForTaggy.addEventListener("input", async function (event) {
     );
     loader.style.display = "none";
 
-    let frequencySpan = document.getElementById("frequency");
     if (result && !result.includes(undefined)) {
       frequencySpan.innerHTML =
         "top candidates: " + (await taggyObject.getMostFrequent().join(", "));
