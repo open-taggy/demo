@@ -1,4 +1,4 @@
-import { Taggy } from "../../taggy-base/taggy/lib/index";
+import { Taggy } from "../../taggy/lib/index";
 
 // create instance of taggy
 // let taggyObject = new Taggy();
