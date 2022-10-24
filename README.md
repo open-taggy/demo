@@ -1,10 +1,15 @@
 # taggy demo
 This is a small demo site to showcase taggy.
 
-Please clone the taggy-base repository first, to have the compiled JS-code ready under:
-"../../taggy-base/taggy/lib/index" 
+Please clone the main taggy repository first, to have the compiled JS-code ready under:
+"../../taggy/lib/index" 
 
-Then install dependencies and start it up with:
+```
+├── taggy                   # the taggy main repository
+├── demo                    # this repository
+```
+
+Then install dependencies and start up:
 
 ```
 npm install
