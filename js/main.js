@@ -22,12 +22,31 @@ let taggyObject = new Taggy(
   true
 );
 
+console.log(taggyObject.config);
+
+let wrapperOptions = document.getElementById("options");
+let configKeys = Object.keys(taggyObject.config);
+
+configKeys.forEach((entry) => {
+  console.log(entry, taggyObject.config[entry]);
+  let inputCheckbox = document.createElement("input");
+  inputCheckbox.type = "checkbox";
+  inputCheckbox.value = entry;
+  inputCheckbox.id = entry;
+  inputCheckbox.checked = taggyObject.config[entry];
+  let labelCheckbox = document.createElement("label");
+  labelCheckbox.innerText = entry;
+  wrapperOptions.appendChild(inputCheckbox);
+  wrapperOptions.appendChild(labelCheckbox);
+  wrapperOptions.appendChild(document.createElement("br"));
+});
+
 // loading animation
 let loader = document.getElementById("loader");
 // let divWrapperLoading = document.createElement("div");
 // divWrapperLoading.className = "loader";
 // divWrapperLoading.style.display = "none";
-// document.getElementById("myTaggy").appendChild(divWrapperLoading);
+// document.getElementById("taggy").appendChild(divWrapperLoading);
 
 let timeout = null;
 
