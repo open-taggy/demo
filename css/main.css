@@ -35,10 +35,16 @@ textarea {
   margin: 8px 0;
   box-sizing: border-box;
 }
-/* 
-span {
-  padding-left: 20px;
-} */
+
+label {
+  font-weight: bold;
+}
+
+span.comment {
+  background-color: lightgrey;
+  font-size: 15px;
+  margin-left: 15px;
+}
 
 #loader {
   margin-left: 0;
