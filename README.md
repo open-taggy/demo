@@ -1,4 +1,4 @@
-# taggy demo 🐓
+# taggy | demo 🐓
 This is a demo site to showcase taggy.
 
 ## Getting Started
