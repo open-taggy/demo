@@ -1,6 +1,8 @@
 # taggy demo 🐓
 This is a demo site to showcase taggy.
 
+## Getting Started
+
 1. Please clone the [main taggy repository](https://github.com/open-taggy/taggy) first and then this one to have them available side to side:
 
 ```
@@ -11,7 +13,7 @@ This is a demo site to showcase taggy.
 ...to have the compiled JS-code for this demo available under:
 "../../taggy/lib/index" 
 
-2. Then cd into /demo, install dependencies and start up:
+2. Then cd into demo/, install dependencies and start up:
 
 ```
 cd demo/
