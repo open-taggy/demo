@@ -37,31 +37,33 @@
 
   <body>
     <!-- Add your site or application content here -->
-    <h2>Welcome to taggy</h2>
     <div id="main">
-      <div class="flexbox">
-        <div class="wrapper-logo">
-          <img src="/img/logo.png" alt="" />
-        </div>
-        <div>
-          <div class="wrapper-category">
-            <p class="bold-center">Kategorie:</p>
-            <div id="results">
-              <input id="taggyOutput" type="text" />
-              <div id="loader" style="display: none"></div>
+      <div id="container-left">
+        <h2>Welcome to taggy</h2>
+        <div id="input-output">
+          <div class="flexbox">
+            <div class="wrapper-logo">
+              <img src="/img/logo.png" alt="" />
+            </div>
+            <div>
+              <div class="wrapper-category">
+                <p class="bold-center">Kategorie:</p>
+                <div id="results">
+                  <input id="taggyOutput" type="text" />
+                  <div id="loader" style="display: none"></div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div id="taggy" type="text">
-        <textarea name="" id="taggyInput" cols="50" rows="8"></textarea>
-      </div>
-      <div id="wrapper-frequency">
-        <span id="frequency"></span>
-      </div>
+          <div id="taggy" type="text">
+            <textarea name="" id="taggyInput" cols="50" rows="8"></textarea>
+          </div>
+          <div id="wrapper-frequency">
+            <span id="frequency"></span>
+          </div>
 
-      <!-- <label class="switch">
+          <!-- <label class="switch">
       <input type="checkbox" />
       <span class="slider round"></span>
       Option1
@@ -72,15 +74,12 @@
       <span class="slider round"></span>
       Option2
     </label> -->
-    </div>
-    <div id="options">
-      <h3>Options</h3>
-      <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-      <label for="vehicle1"> I have a bike</label><br />
-      <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-      <label for="vehicle2"> I have a car</label><br />
-      <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
-      <label for="vehicle3"> I have a boat</label><br /> -->
+        </div>
+        <div id="options">
+          <h3>Options</h3>
+          <div id="container-options"></div>
+        </div>
+      </div>
     </div>
   </body>
   <script src="js/main.js"></script>

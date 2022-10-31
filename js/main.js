@@ -1,6 +1,6 @@
 import { Taggy } from "../../taggy/lib/index";
 
-$(document).ready(function () {
+jQuery(function () {
   // create instance of taggy
   // let taggyObject = new Taggy();
 
@@ -14,8 +14,10 @@ $(document).ready(function () {
   // taggyObject.setOutputField(outputFieldForTaggy);
   // console.log(outputFieldForTaggy);
 
+  // get element for frequency output
   let frequencySpan = document.getElementById("frequency");
 
+  // create taggy instance
   let taggyObject = new Taggy(
     inputFieldForTaggy,
     outputFieldForTaggy,
@@ -24,9 +26,31 @@ $(document).ready(function () {
 
   console.log(taggyObject.config);
 
-  let wrapperOptions = document.getElementById("options");
   let taggyConfig = Object.keys(taggyObject.config);
+  console.log("CONFIG", taggyConfig);
 
+  // create glossar visualization
+  let taggyGlossar = taggyObject.getGlossar();
+  console.log(taggyGlossar);
+
+  if (!$.isEmptyObject(taggyGlossar)) {
+    $("<div></div>")
+      .attr("id", "container-right")
+      .insertAfter("#container-left");
+
+    $("#container-right").append(
+      $("<div></div>")
+        .attr("id", "glossar")
+        .append($("<h3></h3>").text("Glossar"))
+    );
+
+    let glossarData = JSON.stringify(taggyGlossar, null, 2); // spacing level = 2
+    $("#glossar").append($("<pre></pre>").text(glossarData));
+
+    // $.each(taggyGlossar, function (index, value) {});
+  }
+
+  // create options visualization
   $.each(taggyConfig, function (index, value) {
     let labelText = " " + value;
     let nextElement = $(taggyConfig).eq(index + 1);
@@ -36,7 +60,7 @@ $(document).ready(function () {
     }
 
     if (!value.includes("comment")) {
-      let checkbox = $("#options")
+      let checkbox = $("#container-options")
         .append(
           $("<input></input>")
             .attr("type", "checkbox")
@@ -59,9 +83,11 @@ $(document).ready(function () {
 
   $('input[type="checkbox"]').click(function () {
     if ($(this).prop("checked") == true) {
+      console.log("SETTIN", $(this).val(), "TO TRUE");
       taggyObject.setOption($(this).val(), true);
     } else {
       taggyObject.setOption($(this).val(), false);
+      console.log("SETTIN", $(this).val(), "TO FALSE");
     }
   });
 
@@ -87,7 +113,7 @@ $(document).ready(function () {
 
       if (result && !result.includes(undefined)) {
         frequencySpan.innerHTML =
-          "top candidates: " + (await taggyObject.getMostFrequent().join(", "));
+          "Top candidates: " + (await taggyObject.getMostFrequent().join(", "));
       } else {
         frequencySpan.innerHTML = "No match with glossar";
       }
