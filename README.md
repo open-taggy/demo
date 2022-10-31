@@ -1,19 +1,22 @@
-# taggy demo
-This is a small demo site to showcase taggy.
+# taggy demo 🐓
+This is a demo site to showcase taggy.
 
-Please clone the main taggy repository first, to have the compiled JS-code ready under:
-"../../taggy/lib/index" 
+1. Please clone the [main taggy repository](https://github.com/open-taggy/taggy) first and then this one to have them available side to side:
 
 ```
+.
 ├── taggy                   # the taggy main repository
 ├── demo                    # this repository
 ```
+...to have the compiled JS-code for this demo available under:
+"../../taggy/lib/index" 
 
-Then install dependencies and start up:
+2. Then cd into /demo, install dependencies and start up:
 
 ```
+cd demo/
 npm install
-npm run start
+npm run dev
 ```
 ---
 
