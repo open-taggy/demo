@@ -92,33 +92,4 @@ jQuery(function () {
   // loading animation
   // let loader = document.getElementById("loader");
   // let timeout = null;
-
-  // // setup processing after feedback input -> TOTO: put into taggy
-  // inputFieldForTaggy.addEventListener("input", async function (event) {
-  //   clearTimeout(timeout);
-
-  //   // make a new timeout set to go off in 1000ms
-  //   timeout = setTimeout(async function () {
-  //     loader.style.display = "block";
-  //     // createSimpleTag(taggy.taggyVanilla(inputField.value));
-  //     // let result = await taggyObject.processInput(inputFieldForTaggy.value);
-
-  //     let result = await taggyObject.processAndAddTags(
-  //       inputFieldForTaggy.value,
-  //       outputFieldForTaggy
-  //     );
-  //     loader.style.display = "none";
-
-  //     if (result && !result.includes(undefined)) {
-  //       frequencySpan.innerHTML =
-  //         "Top candidates: " + (await taggyObject.getMostFrequent().join(", "));
-  //     } else {
-  //       frequencySpan.innerHTML = "No match with glossar";
-  //     }
-  //   }, 1000);
-
-  //   return {
-  //     inputField: inputFieldForTaggy,
-  //   };
-  // });
 });
