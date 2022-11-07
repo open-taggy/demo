@@ -107,6 +107,12 @@ span.comment {
   border-radius: 10px;
 }
 
+#wrapper-override {
+  height: 40px;
+  /* background-color: #b3d4fc; */
+  border-radius: 10px;
+}
+
 .bold-center {
   font-weight: bold;
   text-align: center;

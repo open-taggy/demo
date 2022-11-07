@@ -14,17 +14,21 @@ jQuery(function () {
   // taggyObject.setOutputField(outputFieldForTaggy);
   // console.log(outputFieldForTaggy);
 
-  // get element for frequency output
+  // get element for word count output
   let frequencySpan = document.getElementById("frequency");
+
+  // get element for word count output
+  let overrideSpan = document.getElementById("override");
 
   // create taggy instance
   let taggyObject = new Taggy(
     inputFieldForTaggy,
     outputFieldForTaggy,
-    frequencySpan
+    frequencySpan,
+    overrideSpan
   );
 
-  console.log(taggyObject.config);
+  // console.log(taggyObject.config);
 
   let taggyConfig = Object.keys(taggyObject.config);
   console.log("CONFIG", taggyConfig);
