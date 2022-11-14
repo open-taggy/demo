@@ -20,12 +20,16 @@ jQuery(function () {
   // get element for word count output
   let overrideSpan = document.getElementById("override");
 
+  // get loader element
+  let loaderDiv = document.getElementById("taggyLoader");
+
   // create taggy instance
   let taggyObject = new Taggy(
     inputFieldForTaggy,
     outputFieldForTaggy,
     frequencySpan,
-    overrideSpan
+    overrideSpan,
+    loaderDiv
   );
 
   // console.log(taggyObject.config);
