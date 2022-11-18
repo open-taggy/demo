@@ -47,18 +47,21 @@
             </div>
           </div>
 
-          <div class="w-full grid grid-rows-1 grid-flow-col grid-cols-2 gap-4">
+          <div
+            id="wrapper-form-info"
+            class="w-full h-10 grid grid-rows-1 grid-flow-col grid-cols-2 gap-4"
+          >
             <label
               for="taggyInput"
               class="block col-span-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-              >Sie haben eine Frage an uns?</label
+              >Was bewegt dich heute?</label
             >
             <div
               id="wrapper-category"
               class="flex flex-row w-full mb-2 content-center"
             >
               <div id="taggyOutput"></div>
-              <div id="taggyLoader">
+              <div id="taggyLoader" style="display: none">
                 <svg
                   class="inline mr-2 w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-red-600"
                   viewBox="0 0 100 101"
@@ -81,15 +84,16 @@
             id="taggyInput"
             rows="6"
             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
-            placeholder="Ihr Anliegen..."
+            placeholder="Dein Beitrag..."
           ></textarea>
           <div class="flex justify-between items-center py-2 px-3"></div>
           <div class="flex w-full content-center">
             <button
+              id="taggySubmit"
               type="submit"
               class="inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center text-white bg-rose-700 rounded-lg focus:ring-4 focus:ring-rose-200 dark:focus:ring-rose-900 hover:bg-rose-800"
             >
-              Senden
+              Posten
             </button>
           </div>
         </div>

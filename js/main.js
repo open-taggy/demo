@@ -14,19 +14,23 @@ jQuery(function () {
   // taggyObject.setOutputField(outputFieldForTaggy);
   // console.log(outputFieldForTaggy);
 
-  // get element for word count output
+  // set submit button taggy (optional)
+  let submitButton = document.getElementById("taggySubmit");
+
+  // get element for word count output (optional)
   let frequencySpan = document.getElementById("frequency");
 
-  // get element for word count output
+  // get element for word count output (optional)
   let overrideSpan = document.getElementById("override");
 
-  // get loader element
+  // get loader element (optional)
   let loaderDiv = document.getElementById("taggyLoader");
 
   // create taggy instance
   let taggyObject = new Taggy(
     inputFieldForTaggy,
     outputFieldForTaggy,
+    submitButton,
     frequencySpan,
     overrideSpan,
     loaderDiv

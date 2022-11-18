@@ -14,7 +14,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.taggy-tag {
+#taggy-tag {
   @apply text-xs inline-flex items-center font-bold uppercase px-3 py-1 bg-blue-200 text-blue-700 rounded-full;
 }
 
