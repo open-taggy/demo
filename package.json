@@ -1,8 +1,8 @@
 {
-  "name": " ",
+  "name": "taggy-demo",
   "version": "0.0.1",
   "description": "",
-  "keywords": "",
+  "keywords": [],
   "license": "",
   "author": "",
   "scripts": {
@@ -13,7 +13,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
+    "@parcel/packager-raw-url": "^2.8.0",
+    "@parcel/transformer-webmanifest": "^2.8.0",
+    "autoprefixer": "^10.4.13",
+    "parcel": "^2.8.0",
+    "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4"
   },
   "dependencies": {
