@@ -66,6 +66,7 @@ span.comment {
   font-size: 15px;
   margin-left: 15px;
 }
+
 /* 
 #main {
   width: 75vw;
@@ -91,11 +92,6 @@ animation: spin 1s linear infinite;
 /* .flexbox {
   display: flex;
 } */
-
-.wrapper-logo {
-  width: 200px;
-  height: 200px;
-}
 
 /* #wrapper-category {
   width: 300px;

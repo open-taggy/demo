@@ -43,17 +43,25 @@ jQuery(function () {
 
   // create glossar visualization
   let taggyGlossar = taggyObject.getGlossar();
-  console.log(taggyGlossar);
+  console.log("taggyGlossar", taggyGlossar);
 
   if (!$.isEmptyObject(taggyGlossar)) {
     $("<div></div>")
-      .attr("id", "container-right")
-      .insertAfter("#container-left");
+      .attr("id", "container-glossar")
+      .insertAfter("#container-input-output");
 
-    $("#container-right").append(
+    $("#container-glossar").append(
       $("<div></div>")
         .attr("id", "glossar")
-        .append($("<h3></h3>").text("Glossar"))
+        .attr("class", "space-y-2")
+        .append(
+          $("<h3></h3>").attr("class", "text-rose-700 text-xl").text("Glossar")
+        )
+        .append(
+          $("<p></p>")
+            .attr("class", "text-sm")
+            .text("taggy tags your input based on these trigger words")
+        )
     );
 
     let glossarData = JSON.stringify(taggyGlossar, null, 2); // spacing level = 2
@@ -82,7 +90,7 @@ jQuery(function () {
         .append($("<label></label>").text(labelText));
       if (commentText) {
         checkbox.append(
-          $("<span></span>").addClass("comment").text(commentText)
+          $("<p></p>").addClass("text-right comment").text(commentText)
         );
       }
       checkbox.append("</br>");
@@ -101,7 +109,11 @@ jQuery(function () {
     }
   });
 
-  // loading animation
-  // let loader = document.getElementById("loader");
-  // let timeout = null;
+  // trigger submit button on pressing 'enter' inside textfield
+  inputFieldForTaggy.addEventListener("keydown", function (event) {
+    // click listener on button is called
+    if (event.key == "Enter") {
+      submitButton.click();
+    }
+  });
 });

@@ -22,8 +22,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- <script src="js/vendor/jquery-3.6.1.min.js"></script> -->
-    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="js/plugins.js"></script>
+    <!-- <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="js/plugins.js"></script> -->
     <!-- 
     <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
     <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script> -->
@@ -33,69 +33,84 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="/dist/output.css" rel="stylesheet" />
+    <!-- <link href="/dist/output.css" rel="stylesheet" /> -->
   </head>
 
   <body>
     <!-- Add your site or application content here -->
-    <div id="main" class="flex flow-row space-x-8">
-      <div id="container-left" class="flex flex-col space-y-4">
-        <div id="input-output">
-          <div class="flex">
-            <div class="wrapper-logo">
+    <div
+      id="main"
+      class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8"
+    >
+      <div id="container-input-output" class="flex flex-col space-y-4">
+        <div id="input-output" class="space-y-8">
+          <div id="container-welcome" class="flex justify-center">
+            <div class="w-1/5">
               <img src="/img/logo.png" alt="" />
+            </div>
+            <div id="container-info" class="w-4/5 flex flex-col justify-center">
+              <h2 class="text-xl">Welcome to taggy</h2>
+              <p class="text-base">
+                taggy helps you tag your content. Please enter some text below
+                to categorize it.
+              </p>
+              <p class="text-sm">
+                Please make sure it contains some words out of the glossar.
+              </p>
             </div>
           </div>
 
-          <div
-            id="wrapper-form-info"
-            class="w-full h-10 grid grid-rows-1 grid-flow-col grid-cols-2 gap-4"
-          >
-            <label
-              for="taggyInput"
-              class="block col-span-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-              >Was bewegt dich heute?</label
-            >
+          <div id="container-input" class="space-y-1">
             <div
-              id="wrapper-category"
-              class="flex flex-row w-full mb-2 content-center"
+              id="wrapper-form-info"
+              class="w-full h-10 grid grid-rows-1 grid-flow-col grid-cols-2 gap-4"
             >
-              <div id="taggyOutput"></div>
-              <div id="taggyLoader" style="display: none">
-                <svg
-                  class="inline mr-2 w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-red-600"
-                  viewBox="0 0 100 101"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                    fill="currentFill"
-                  />
-                </svg>
+              <label
+                for="taggyInput"
+                class="block col-span-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                >Was bewegt dich heute?</label
+              >
+              <div
+                id="wrapper-category"
+                class="flex flex-row w-full mb-2 content-center"
+              >
+                <div id="taggyOutput"></div>
+                <div id="taggyLoader" style="display: none">
+                  <svg
+                    class="inline mr-2 w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-red-600"
+                    viewBox="0 0 100 101"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                      fill="currentFill"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
+            <textarea
+              id="taggyInput"
+              rows="6"
+              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+              placeholder="Dein Beitrag..."
+            ></textarea>
+            <div class="flex w-full content-center">
+              <button
+                id="taggySubmit"
+                type="submit"
+                class="inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center text-white bg-rose-700 rounded-lg focus:ring-4 focus:ring-rose-200 dark:focus:ring-rose-900 hover:bg-rose-800"
+              >
+                Submit
+              </button>
+            </div>
           </div>
-          <textarea
-            id="taggyInput"
-            rows="6"
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
-            placeholder="Dein Beitrag..."
-          ></textarea>
-          <div class="flex justify-between items-center py-2 px-3"></div>
-          <div class="flex w-full content-center">
-            <button
-              id="taggySubmit"
-              type="submit"
-              class="inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center text-white bg-rose-700 rounded-lg focus:ring-4 focus:ring-rose-200 dark:focus:ring-rose-900 hover:bg-rose-800"
-            >
-              Submit
-            </button>
-          </div>
+          <!-- <div class="flex justify-between items-center py-2 px-3"></div> -->
         </div>
         <div id="extras">
           <div id="wrapper-frequency" class="md-2">
