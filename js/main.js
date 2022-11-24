@@ -20,7 +20,7 @@ jQuery(function () {
   // get element for word count output (optional)
   let frequencySpan = document.getElementById("frequency");
 
-  // get element for word count output (optional)
+  // get element for override-possibility output (optional)
   let overrideSpan = document.getElementById("override");
 
   // get loader element (optional)
@@ -65,7 +65,13 @@ jQuery(function () {
     );
 
     let glossarData = JSON.stringify(taggyGlossar, null, 2); // spacing level = 2
-    $("#glossar").append($("<pre></pre>").text(glossarData));
+    $("#glossar").append(
+      $("<pre></pre>")
+        .addClass(
+          "rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs"
+        )
+        .text(glossarData)
+    );
 
     // $.each(taggyGlossar, function (index, value) {});
   }
@@ -87,10 +93,12 @@ jQuery(function () {
             .attr("id", value)
             .val(value)
         )
-        .append($("<label></label>").text(labelText));
+        .append(
+          $("<label></label>").addClass("text-sm font-bold").text(labelText)
+        );
       if (commentText) {
         checkbox.append(
-          $("<p></p>").addClass("text-right comment").text(commentText)
+          $("<p></p>").addClass("text-justify text-xs").text(commentText)
         );
       }
       checkbox.append("</br>");
@@ -116,4 +124,6 @@ jQuery(function () {
       submitButton.click();
     }
   });
+
+
 });
