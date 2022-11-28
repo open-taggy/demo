@@ -1,4 +1,4 @@
-import { Taggy } from "../taggy-base/lib/index";
+import { Taggy } from "../taggy-base/lib/index.js";
 
 jQuery(function () {
   // create instance of taggy
