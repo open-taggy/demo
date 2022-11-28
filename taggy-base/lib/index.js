@@ -1,17 +1,11 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-// exports.Taggy = void 0;
-const wink_tokenizer_1 = __importDefault(require("wink-tokenizer"));
-const stopwords_iso_1 = __importDefault(require("stopwords-iso")); // object of stopwords for multiple languages
+import tokenizer from "wink-tokenizer";
+import stopwords from "stopwords-iso"; // object of stopwords for multiple languages
 // import stopwordsDE from de; // german stopwords
-const normalize_for_search_1 = __importDefault(require("normalize-for-search"));
-const lodash_1 = require("lodash");
-require("regenerator-runtime/runtime");
+import normalizer from "normalize-for-search";
+import { sample, groupBy, } from "lodash";
+import "regenerator-runtime/runtime";
 //import synonyms from "germansynonyms";
-const tagify_1 = __importDefault(require("@yaireo/tagify"));
+import Tagify from "@yaireo/tagify";
 // import jargon from "@clipperhouse/jargon";
 // import stackexchange from "@clipperhouse/jargon/stackexchange"; // a dictionary
 // import fs from "fs";
@@ -19,7 +13,7 @@ const tagify_1 = __importDefault(require("@yaireo/tagify"));
 const openthesaurus = require("openthesaurus");
 const glossarData = require("../data/glossar.json");
 const configFile = require("../data/config.json");
-class Taggy {
+export class Taggy {
     /**
      * Create a new instance of taggy
      * @param inputField Input field where user text goes
@@ -56,8 +50,8 @@ class Taggy {
         this.outputField = outputField;
         this.loaderElement = loaderElement;
         // this.submitButton = submitButton;
-        this.winkTokenizer = new wink_tokenizer_1.default();
-        this.stopwordsDE = stopwords_iso_1.default.de;
+        this.winkTokenizer = new tokenizer();
+        this.stopwordsDE = stopwords.de;
         this.openthesaurus = openthesaurus;
         // if (this.outputField) this.outputField.setAttribute("readOnly", "true");
         if (this.config.use_tagify)
@@ -228,7 +222,7 @@ class Taggy {
     }
     createTagify(inputElement) {
         if (this.config.use_tagify && !this.tagify) {
-            this.tagify = new tagify_1.default(inputElement, {
+            this.tagify = new Tagify(inputElement, {
                 userInput: false,
                 editTags: false,
                 transformTag: this.transformTagifyTag,
@@ -259,7 +253,7 @@ class Taggy {
     createTagifyOverride(inputElement) {
         if (this.config.use_tagify) {
             if (!this.tagifyOverride) {
-                this.tagifyOverride = new tagify_1.default(this.overrideOutput, {
+                this.tagifyOverride = new Tagify(this.overrideOutput, {
                     userInput: false,
                     transformTag: this.transformTagifyTag,
                 });
@@ -283,7 +277,7 @@ class Taggy {
                 if (response && response.synsets[0]?.terms) {
                     console.log(response.synsets[0]?.terms);
                     response.synsets[0].terms.forEach((term) => {
-                        optValues.push(normalize_for_search_1.default(term.term));
+                        optValues.push(normalizer(term.term));
                     });
                 }
                 returnSet = this.tokenize(this.filterStopWords(optValues).toString());
@@ -454,7 +448,7 @@ class Taggy {
     normalize(inputArray) {
         let normalizedValues = [];
         for (const element of inputArray) {
-            normalizedValues.push(normalize_for_search_1.default(element));
+            normalizedValues.push(normalizer(element));
         }
         return normalizedValues;
     }
@@ -487,14 +481,14 @@ class Taggy {
             if (this.config.include_top) {
                 console.log("INCLUDE TOP IS SET");
                 console.log(category);
-                glossarTags.push(normalize_for_search_1.default(category.name));
+                glossarTags.push(normalizer(category.name));
             }
             for (const word of category.words) {
-                glossarTags.push(normalize_for_search_1.default(word));
+                glossarTags.push(normalizer(word));
                 // check input for "whitespace-words"
                 if (word.includes(" ")) {
-                    if (normalize_for_search_1.default(input).includes(word)) {
-                        let matchArray = normalize_for_search_1.default(input).matchAll(word);
+                    if (normalizer(input).includes(word)) {
+                        let matchArray = normalizer(input).matchAll(word);
                         for (let match of matchArray) {
                             combinedWordsReturnSet.push(match[0]);
                             console.log(match[0]);
@@ -531,7 +525,7 @@ class Taggy {
                 count = 0;
                 finalSet.forEach((element) => {
                     // if INCLUDE_TOP ist set -> add top categories
-                    if (normalize_for_search_1.default(category.name) == element) {
+                    if (normalizer(category.name) == element) {
                         count += 1;
                     }
                     if (this.normalize(category.words).includes(element)) {
@@ -548,14 +542,14 @@ class Taggy {
             console.log("TOPCATFREQ", topTagCount);
             // console.log("SORTBY", sortBy(topTagCount, ["category", "count"]));
             // set most frequent top tags
-            let groupedMostFrequentTopTags = lodash_1.groupBy(topTagCount, "count");
+            let groupedMostFrequentTopTags = groupBy(topTagCount, "count");
             if (groupedMostFrequentTopTags[maxCount][0].count) {
                 this.mostFrequentTopTags = groupedMostFrequentTopTags[maxCount];
             }
         }
         // set most frequent matches
         this.mostFrequentWords = modeArray(finalSet);
-        let finalValue = lodash_1.sample(this.mostFrequentWords);
+        let finalValue = sample(this.mostFrequentWords);
         console.log("MOSTFREQUENT TOP TAGS", this.mostFrequentTopTags);
         // if ASSIGN_TOP is set -> return top categegory
         if (this.config.assign_top) {
@@ -565,14 +559,13 @@ class Taggy {
                     topTags.push(element.category);
             });
             console.log("topTAGS", topTags);
-            let tempValue = lodash_1.sample(topTags);
+            let tempValue = sample(topTags);
             if (tempValue)
                 finalValue = tempValue;
         }
         return finalValue ? [finalValue] : [""];
     }
 }
-exports.Taggy = Taggy;
 function enrichWithOpenThesaurus(inputArray) {
     let enrichedArray = [];
     for (const word of inputArray) {
