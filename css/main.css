@@ -19,7 +19,15 @@
 }
 
 .override {
-  @apply bg-green-200 text-green-800 border-green-300 hover:bg-green-100;
+  @apply bg-green-200 text-green-800 border-green-300 hover:bg-green-100 mr-1;
+}
+
+.override-title {
+  @apply text-base grow
+}
+
+.not-found {
+  @apply bg-red-200 text-red-800 border-red-300;
 }
 
 html {

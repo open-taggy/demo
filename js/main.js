@@ -125,5 +125,13 @@ jQuery(function () {
     }
   });
 
+  // give every new tag a random color
+  // $('div[type="checkbox"]').click(function () {
+  //   if ($(this).prop("checked") == true) {
+  //     taggyObject.setOption($(this).val(), true);
+  //   } else {
+  //     taggyObject.setOption($(this).val(), false);
+  //   }
+  // });
 
 });
