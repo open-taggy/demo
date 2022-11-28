@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Taggy = void 0;
+// exports.Taggy = void 0;
 const wink_tokenizer_1 = __importDefault(require("wink-tokenizer"));
 const stopwords_iso_1 = __importDefault(require("stopwords-iso")); // object of stopwords for multiple languages
 // import stopwordsDE from de; // german stopwords
