@@ -3,7 +3,7 @@ import stopwords from "../node_modules/stopwords-iso"; // object of stopwords fo
 // import stopwordsDE from de; // german stopwords
 import normalizer from "../node_modules/normalize-for-search";
 import { sample, groupBy } from "../node_modules/lodash";
-import "regenerator-runtime/runtime";
+import "../node_modules/regenerator-runtime/runtime";
 //import synonyms from "germansynonyms";
 import Tagify from "../node_modules/@yaireo/tagify";
 // import jargon from "@clipperhouse/jargon";
