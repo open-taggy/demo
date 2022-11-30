@@ -1,4 +1,4 @@
-import { Taggy } from "../../taggy/lib/index";
+import { Taggy } from "../../taggy/lib/index.js";
 
 jQuery(function () {
   // create instance of taggy
@@ -6,7 +6,8 @@ jQuery(function () {
 
   // set input field for taggy
   let inputFieldForTaggy = document.getElementById("taggyInput");
-  // taggyObject.setInputField(inputFieldForTaggy);
+  // taggyObject.setInputField
+  (inputFieldForTaggy);
   // console.log(inputFieldForTaggy);
 
   // // set output field for taggy
@@ -133,5 +134,4 @@ jQuery(function () {
   //     taggyObject.setOption($(this).val(), false);
   //   }
   // });
-
 });
