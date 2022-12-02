@@ -10,7 +10,8 @@
     "dev": "parcel index.html --open",
     "taildev": "npm run dev && npx tailwindcss -i ./css/main.css -o ./dist/output.css --watch",
     "start": "npm run build && npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-gh": "parcel build index.html --dist-dir docs --no-optimize --public-url ./"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
