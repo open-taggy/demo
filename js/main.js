@@ -7,7 +7,7 @@ jQuery(function () {
   // set input field for taggy
   let inputFieldForTaggy = document.getElementById("taggyInput");
   // taggyObject.setInputField
-  (inputFieldForTaggy);
+  inputFieldForTaggy;
   // console.log(inputFieldForTaggy);
 
   // // set output field for taggy
@@ -46,30 +46,61 @@ jQuery(function () {
   let taggyGlossar = taggyObject.getGlossar();
   console.log("taggyGlossar", taggyGlossar);
 
-  if (!$.isEmptyObject(taggyGlossar)) {
-    $("<div></div>")
-      .attr("id", "container-glossar")
-      .insertAfter("#container-input-output");
+  // glossar-tab switching
 
-    $("#container-glossar").append(
-      $("<div></div>")
-        .attr("id", "glossar")
-        .attr("class", "space-y-2")
-        .append(
-          $("<h3></h3>").attr("class", "text-rose-700 text-xl").text("Glossar")
-        )
-        .append(
-          $("<p></p>")
-            .attr("class", "text-sm")
-            .text("taggy tags your input based on these trigger words")
-        )
+  // $(function () {
+  //   $("#tabs-1").tabs();
+  // });
+
+  $(".tabs").click(function () {
+    let tabContent = $(this).attr("data");
+    let selectedTabId = $(this).attr("id");
+    console.log(tabContent);
+    $(".tab-content").addClass("hidden");
+    $(".tabs").removeClass("bg-rose-100");
+    $("#" + tabContent).removeClass("hidden");
+    $("#" + selectedTabId).addClass("bg-rose-100");
+
+    // if ($(this).prop("checked") == true) {
+    // } else {
+    //   taggyObject.setOption($(this).val(), false);
+    // }
+  });
+
+  $('input[type="checkbox"]').click(function () {
+    if ($(this).prop("checked") == true) {
+      taggyObject.setOption($(this).val(), true);
+    } else {
+      taggyObject.setOption($(this).val(), false);
+    }
+  });
+
+  if (!$.isEmptyObject(taggyGlossar)) {
+    // $("<div></div>").attr("id", "container-glossar").insertAfter("#tab-content-1");
+
+    $("#tab-content-1").append(
+      $("<div></div>").attr("id", "container-glossar")
     );
 
+    // $("#container-glossar").append(
+    //   $("<div></div>")
+    //     .attr("id", "glossar")
+    //     .attr("class", "space-y-2")
+    //     .append(
+    //       $("<h3></h3>").attr("class", "text-rose-700 text-xl").text("Glossar")
+    //     )
+    //     .append(
+    //       $("<p></p>")
+    //         .attr("class", "text-sm")
+    //         .text("taggy tags your input based on these trigger words")
+    //     )
+    // );
+
     let glossarData = JSON.stringify(taggyGlossar, null, 2); // spacing level = 2
-    $("#glossar").append(
+    $("#tab-content-1").append(
       $("<pre></pre>")
         .addClass(
-          "rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs"
+          "mt-2 rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs"
         )
         .text(glossarData)
     );
@@ -134,4 +165,7 @@ jQuery(function () {
   //     taggyObject.setOption($(this).val(), false);
   //   }
   // });
+
+  // load tab 1 of glossar
+  $("#tab-1").trigger("click");
 });
