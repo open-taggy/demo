@@ -20540,8 +20540,8 @@ function $bf9fbd96e1ecf97e$var$get(word, options) {
 $bf9fbd96e1ecf97e$exports.get = $bf9fbd96e1ecf97e$var$get;
 
 
-var $faf7d658fb0798b2$exports = {};
-$faf7d658fb0798b2$exports = JSON.parse('{"tags":[{"name":"Print-Abo","words":["printausgabe","gedruckt","postkasten","zeitung"]},{"name":"Online-Abo","words":["website","kommentarfunktion","forum"]},{"name":"ePaper-Abo","words":["eReader","kindle","tolino","cloud","download","connection","error"]},{"name":"Nachsendeauftrag","words":["nachsendung","urlaub","umzug","reise","verreisen","ausland","adresse"]},{"name":"Reklamation","words":["beschwerde","beschweren","\xe4rgerlich","frechheit","unversch\xe4mt","verz\xf6gert","nicht gekommen","verschwunden"]}]}');
+var $c7a35b12b73f8341$exports = {};
+$c7a35b12b73f8341$exports = JSON.parse('{"tags":[{"name":"Economy","words":["401a Retirement Plan","401k Retirement Plan","403b Retirement Plan","457 Retirement Plan","absolute advantage","abandonment of the gold standard","adaptive expectations","aggregate demand (AD)","aggregate supply (AS)","aggregation problem","agent","agricultural economics","allocative efficiency","antitrust law","applied economics","appropriate technology","arbitrage","Arrow\'s impossibility ","Austrian School","autarky","automatic stabilizer","autonomous consumption","average cost","average fixed cost","average variable cost","average tax rate","backward induction","balance of payments","balance of trade","balanced budget","bank","bankruptcy","barriers to entry","barter","behavioral economics","Bellman equation","bequest motive","Bertrand–Edgeworth model","Black–Scholes model","board of governors","bond","borrower","break-even","Bretton Woods system","budget deficit","budget set","budget surplus","big push model","business cycle","business economics","business sector","capacity utilization","capital","capital cost","capital flight","capital good","cartel","central bank","Certificate of ","Choice (CD or COD)","circular flow of income","circulation","classical economics","command economy","commerce","commodity","comparative advantage","Competition (CD or COD)","competition law","competitive market","complementary goods","compound interest","computational economics","consumer","consumer choice","consumer confidence","consumer price index (CPI)","consumer surplus","consumerism","consumption","consumption function","contract curve","contract theory","convexity","corporation","cost","cost curve","cost of living","cost overrun","cost-benefit analysis","Cost-of-production theory of ","credit bureau","credit card","credit score","credit rating","credit union","creditor","crowding out","cultural economics","currency","current ","cyclical unemployment","deadweight loss","debt","debtor","deficit spending","deflation","deflator","demand","demand curve","demand deposit","demand shock","demographic economics","depreciation","depression","deregulation","Diminishing marginal ","diminishing returns","discretionary income","disinflation","disposable ","dissaving","distribution","domestic final demand","domestic final supply (DFS)","duopoly","dynamic ","econometrics","economic costs","economic development","economic efficiency","economic equilibrium","economic growth","economic indicator","economic interdependence","economic model","economic profits","economic rent","economic shortage","economic surplus","economic system","economics","economies of agglomeration","economies of scale","economies of scope","economist","economy","effective demand","elastic demand","elasticity","engineering economics","entrepreneurship","environmental economics","equal opportunity","equilibrium","equilibrium price","equity","excess supply","exchange rate","excludability","expected utility hypothesis","expeditionary economics","experimental economics","externality","factors of production","federal funds rate target","Federal Open Market ","Federal Reserve ","finance","financial economics","financial institution","financial markets","financial planning","financial risk","financial transaction","fiscal policy","fixed costs","foreign exchange market","free market","free trade","frictional unemployment","full employment","full employment output (Y*)","functions of money","future value","GDP deflator","general equilibrium theory","gift economy","good","government revenue","government spending","gross domestic product (GDP)","growth recession","happiness economics","health economics","heterodox economics","household","housing starts","human capital","humanistic economics","hyperinflation","implicit cost","import quota","import","incentive","income","income distribution","income effect","increasing returns","indifference curve","Individual Retirement ","industrial organization","industry","inelastic demand","inflation","inflation rate","information economics","interest","interest rate","international economics","intertemporal choice","inventory bounce","investment","investment fund","invisible hand","IS–LM model","JEL classification codes","job hunting","joint product pricing","just price","Keynesian economics","labor","labor economics","laissez-fairei>","Law of Demand","Law of Diminishing Marginal Utility","law of increasing costs","law of supply","lease","lending","leprechaun economics","liability","loan","local tax","long run","long-run shutdown condition","long-term financing","loose money policy","macroeconomics","Major ","managerial economics","marginal cost","marginal product of labor","marginal propensity to ","marginal revenue","marginal utility","marginal value","marginalism","market","market basket","market economy","market failures","market structure","market production","market system","markets","mercantilism","microeconomics","mixed economy","monetarism","monetary economics","monetary policy","monetary system","money","money supply","monopolistic competition","monopoly","monopsony","mortgage","motivation","multiplier","mutual fund","Nash equilibrium","national tax","national wealth","natural monopoly","natural resource economics","need","nominal interest rates","nominal prices","nominal wages","non-convexity","non-price determinant of demand","non-rivalry","oligopoly","oligopsony","open-market operations","opportunity cost","organizational economics","Pareto efficiency","participation","partnership","per capita","perfect competition","personal property","physical capital","physiocracy","population economics","preference","price","price ceiling","price controls","price elasticity of demand","price elasticity of supply","price floor","price index","price level","pricing","prime rate","producer","producer price index","producer surplus","product differentiation","production","Production possibilities ","productive efficiency","production set","profit","profit motive","progressive tax","proportional tax","proxemics","public economics","public good","pure competition","purchasing power parity (PPP)","quantitative easing (QE)","quantity demanded","quantity supplied","quantity theory of money","quota","rate of profit","rational choice","rational expectations","rationing","Real income ","real interest rates","real GDP","real prices","real wages","recessions","recoveries","reflation","regional science","regressive tax","regulation","retail sales","returns to scale","revenue","rights","right to work law","risk aversion","rivalry","saving","scarcity","sector","service","service economy","shift work","short run","shortage","short-run shutdown condition","shrinkflation","social behavior","social choice theory","social mobility","socialist economics","sociality","socially optimal output level","socioeconomics","sole proprietorship","solidarity economy","stagflation","standard of living","state tax","steady-state economy","sticky prices","Stockholm School","structural unemployment","substitution effect","substitute good","sunk costs","supply","supply and demand","supply chain","supply curve","supply schedule","supply shock","supply-side economics","surplus","tariff","tax","tax rate","terms of trade","theory of the firm","thermoeconomics","time value of money","total cost","total surplus","trade","traditional economy","transaction cost","transport economics","trough","underemployment","unemployment","unit of account","Unitary elastic ","unskilled labor","urban economics","utilitarianism","utility","value","value-added tax (VAT)","variable costs","velocity of money","wage","want","wealth","wealth effect","welfare","welfare economics","willingness to accept (WTA)","willingness to pay (WTP)","yield","zero-sum game"]},{"name":"Feedback","words":["love","great work","fan"]},{"name":"Account Information","words":["information","account"]}]}');
 
 
 var $97db29b3b0612bbc$exports = {};
@@ -20649,7 +20649,7 @@ class $99632c488bd97288$var$Taggy {
         return this.config;
     }
     getGlossar() {
-        return $faf7d658fb0798b2$exports;
+        return $c7a35b12b73f8341$exports;
     }
     setOption(option, value) {
         console.log("setting", option, "to", value);
@@ -20912,7 +20912,7 @@ class $99632c488bd97288$var$Taggy {
         let glossarTags = [];
         let combinedWordsReturnSet = [];
         // if INCLUDE-TOP is set -> add top tag
-        for (const category of $faf7d658fb0798b2$exports.tags){
+        for (const category of $c7a35b12b73f8341$exports.tags){
             if (this.config.include_top) {
                 console.log("INCLUDE TOP IS SET");
                 console.log(category);
@@ -20955,7 +20955,7 @@ class $99632c488bd97288$var$Taggy {
         if (this.config.assign_top) {
             let count = 0;
             // if INCLUDE_TOP ist set -> add top categories
-            $faf7d658fb0798b2$exports.tags.forEach((category)=>{
+            $c7a35b12b73f8341$exports.tags.forEach((category)=>{
                 console.log("CATEGORY", category);
                 count = 0;
                 finalSet.forEach((element)=>{
@@ -21024,7 +21024,7 @@ class $99632c488bd97288$var$Taggy {
             include_top_comment: $97db29b3b0612bbc$exports.categories["include-top-comment"]
         };
         // console.log("TAGGY CONFIG", this.config);
-        console.log("hello, this is taggy 0.1");
+        console.log("hello, this is taggy 0.3");
         this.setSubmitButton(submitButton);
         this.setInputField(inputField);
         this.outputField = outputField;
@@ -21107,11 +21107,45 @@ jQuery(function() {
     // create glossar visualization
     let taggyGlossar = taggyObject.getGlossar();
     console.log("taggyGlossar", taggyGlossar);
+    // glossar-tab switching
+    // $(function () {
+    //   $("#tabs-1").tabs();
+    // });
+    $(".tabs").click(function() {
+        let tabContent = $(this).attr("data");
+        let selectedTabId = $(this).attr("id");
+        console.log(tabContent);
+        $(".tab-content").addClass("hidden");
+        $(".tabs").removeClass("bg-rose-100");
+        $("#" + tabContent).removeClass("hidden");
+        $("#" + selectedTabId).addClass("bg-rose-100");
+    // if ($(this).prop("checked") == true) {
+    // } else {
+    //   taggyObject.setOption($(this).val(), false);
+    // }
+    });
+    $('input[type="checkbox"]').click(function() {
+        if ($(this).prop("checked") == true) taggyObject.setOption($(this).val(), true);
+        else taggyObject.setOption($(this).val(), false);
+    });
     if (!$.isEmptyObject(taggyGlossar)) {
-        $("<div></div>").attr("id", "container-glossar").insertAfter("#container-input-output");
-        $("#container-glossar").append($("<div></div>").attr("id", "glossar").attr("class", "space-y-2").append($("<h3></h3>").attr("class", "text-rose-700 text-xl").text("Glossar")).append($("<p></p>").attr("class", "text-sm").text("taggy tags your input based on these trigger words")));
+        // $("<div></div>").attr("id", "container-glossar").insertAfter("#tab-content-1");
+        $("#tab-content-1").append($("<div></div>").attr("id", "container-glossar"));
+        // $("#container-glossar").append(
+        //   $("<div></div>")
+        //     .attr("id", "glossar")
+        //     .attr("class", "space-y-2")
+        //     .append(
+        //       $("<h3></h3>").attr("class", "text-rose-700 text-xl").text("Glossar")
+        //     )
+        //     .append(
+        //       $("<p></p>")
+        //         .attr("class", "text-sm")
+        //         .text("taggy tags your input based on these trigger words")
+        //     )
+        // );
         let glossarData = JSON.stringify(taggyGlossar, null, 2); // spacing level = 2
-        $("#glossar").append($("<pre></pre>").addClass("rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs").text(glossarData));
+        $("#tab-content-1").append($("<pre></pre>").addClass("mt-2 rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs").text(glossarData));
     // $.each(taggyGlossar, function (index, value) {});
     }
     // create options visualization
@@ -21136,15 +21170,17 @@ jQuery(function() {
         // click listener on button is called
         if (event.key == "Enter") submitButton.click();
     });
-// give every new tag a random color
-// $('div[type="checkbox"]').click(function () {
-//   if ($(this).prop("checked") == true) {
-//     taggyObject.setOption($(this).val(), true);
-//   } else {
-//     taggyObject.setOption($(this).val(), false);
-//   }
-// });
+    // give every new tag a random color
+    // $('div[type="checkbox"]').click(function () {
+    //   if ($(this).prop("checked") == true) {
+    //     taggyObject.setOption($(this).val(), true);
+    //   } else {
+    //     taggyObject.setOption($(this).val(), false);
+    //   }
+    // });
+    // load tab 1 of glossar
+    $("#tab-1").trigger("click");
 });
 
 
-//# sourceMappingURL=index.151ef1f1.js.map
+//# sourceMappingURL=index.dd650129.js.map
