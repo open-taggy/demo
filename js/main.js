@@ -1,5 +1,10 @@
 import { Taggy } from "../../taggy/lib/index.js";
 
+import glossaryAbo from "../data/glossary_DE-abo.json";
+import glossaryNewspaper from "../data/glossary_DE-newspaper.json";
+import glossaryShop from "../data/glossary_EN-shop.json";
+
+
 jQuery(function () {
   // create instance of taggy
   // let taggyObject = new Taggy();
@@ -42,11 +47,11 @@ jQuery(function () {
   let taggyConfig = Object.keys(taggyObject.config);
   console.log("CONFIG", taggyConfig);
 
-  // create glossar visualization
-  let taggyGlossar = taggyObject.getGlossar();
-  console.log("taggyGlossar", taggyGlossar);
+  // create glossary visualization
+  let taggyGlossary = taggyObject.getGlossary();
+  console.log("taggyGlossary", taggyGlossary);
 
-  // glossar-tab switching
+  // glossary-tab switching
 
   // $(function () {
   //   $("#tabs-1").tabs();
@@ -61,10 +66,10 @@ jQuery(function () {
     $("#" + tabContent).removeClass("hidden");
     $("#" + selectedTabId).addClass("bg-rose-100");
 
-    // if ($(this).prop("checked") == true) {
-    // } else {
-    //   taggyObject.setOption($(this).val(), false);
-    // }
+    if (selectedTabId === "tab-1") taggyObject.setGlossary(glossaryAbo);
+    if (selectedTabId === "tab-2") taggyObject.setGlossary(glossaryNewspaper);
+    if (selectedTabId === "tab-3") taggyObject.setGlossary(glossaryShop);
+
   });
 
   $('input[type="checkbox"]').click(function () {
@@ -75,37 +80,23 @@ jQuery(function () {
     }
   });
 
-  if (!$.isEmptyObject(taggyGlossar)) {
-    // $("<div></div>").attr("id", "container-glossar").insertAfter("#tab-content-1");
+  if (!$.isEmptyObject(taggyGlossary)) {
+    // $("<div></div>").attr("id", "container-glossary").insertAfter("#tab-content-1");
 
     $("#tab-content-1").append(
-      $("<div></div>").attr("id", "container-glossar")
+      $("<div></div>").attr("id", "container-glossary")
     );
 
-    // $("#container-glossar").append(
-    //   $("<div></div>")
-    //     .attr("id", "glossar")
-    //     .attr("class", "space-y-2")
-    //     .append(
-    //       $("<h3></h3>").attr("class", "text-rose-700 text-xl").text("Glossar")
-    //     )
-    //     .append(
-    //       $("<p></p>")
-    //         .attr("class", "text-sm")
-    //         .text("taggy tags your input based on these trigger words")
-    //     )
-    // );
-
-    let glossarData = JSON.stringify(taggyGlossar, null, 2); // spacing level = 2
+    let glossaryData = JSON.stringify(taggyGlossary, null, 2); // spacing level = 2
     $("#tab-content-1").append(
       $("<pre></pre>")
         .addClass(
           "mt-2 rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs"
         )
-        .text(glossarData)
+        .text(glossaryData)
     );
 
-    // $.each(taggyGlossar, function (index, value) {});
+    // $.each(taggyGlossary, function (index, value) {});
   }
 
   // create options visualization
@@ -166,6 +157,18 @@ jQuery(function () {
   //   }
   // });
 
-  // load tab 1 of glossar
+  // load tab 1 of glossary
   $("#tab-1").trigger("click");
+
+  // check fore new inserted DOM-elements (tags)
+  $("body").on("DOMNodeInserted", ".override", function (event) {
+    console.log("hit for", event.target);
+    if (!($("#override-title").length > 0)) {
+      const overrideTitle = $("<h3></h3>")
+        .attr("id", "override-title")
+        .text("Multiple possibilities found. Click to override main tag:")
+        .addClass("pr-8");
+      $("#override").prepend(overrideTitle);
+    }
+  });
 });
