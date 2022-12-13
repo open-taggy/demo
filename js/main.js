@@ -1,7 +1,7 @@
 import { Taggy } from "../../taggy/lib/index.js";
 
 import glossaryAbo from "../data/glossary_DE-abo.json";
-import glossaryNewspaper from "../data/glossary_EN-economy.json";
+import glossaryNewspaper from "../data/glossary_EN-news.json";
 import glossaryShop from "../data/glossary_EN-shop.json";
 
 jQuery(function () {
