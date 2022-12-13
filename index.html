@@ -21,6 +21,7 @@
     <meta name="theme-color" content="#fafafa" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <!-- <script src="js/vendor/jquery-3.6.1.min.js"></script> -->
     <!-- <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script> -->
@@ -55,9 +56,22 @@
                 to categorize it.
               </p>
               <p class="text-sm">
-                Please make sure it contains some words out of the glossar.
+                Please make sure it contains some words out of the glossary.
               </p>
             </div>
+            <!-- <div class="rotate-90">
+              <svg
+                class="animate-bounce rotate-45 w-6 h-6 text-rose-700"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </div> -->
           </div>
 
           <div id="container-input" class="space-y-1">
@@ -112,16 +126,24 @@
           </div>
           <!-- <div class="flex justify-between items-center py-2 px-3"></div> -->
         </div>
-        <div id="extras">
-          <div id="wrapper-frequency" class="md-2">
-            <span id="frequency"></span>
+        <div id="extras" class="hidden">
+          <div id="optional" class="">
+            <h3 class="text-rose-700 text-xl">Optional Output</h3>
+            <p class="text-sm">You can hide this from your users</p>
           </div>
-          <div id="wrapper-override">
-            <!-- <p>Top detected categories:</p> -->
-            <div id="override" class="flex flex-row justify-start"></div>
+          <div
+            class="mt-2 p-4 rounded-md outline outline-offset-1 outline-2 outline-gray-400 rounded-t-lg bg-green-50 h"
+          >
+            <div id="wrapper-frequency" class="md-2">
+              <span id="frequency"></span>
+            </div>
+            <div id="wrapper-override">
+              <!-- <p>Top detected categories:</p> -->
+              <div id="override" class="flex flex-row justify-start"></div>
+            </div>
           </div>
         </div>
-        <div id="options">
+        <div id="options" class="pt-4">
           <h3 class="text-rose-700 text-xl">Options</h3>
           <!-- <p class="text-base">
             Some options to tune the bird.
@@ -130,6 +152,50 @@
             id="container-options"
             class="mt-2 p-4 rounded-md outline outline-offset-1 outline-2 outline-gray-400"
           ></div>
+        </div>
+      </div>
+
+      <div id="glossary" class="space-y-2">
+        <h3 class="text-rose-700 text-xl">Glossary</h3>
+        <p class="text-base">
+          taggy tags your input based on these trigger words
+        </p>
+        <p class="text-sm">
+          Here are some examples. Enter some text in the input field after
+          selection to try it out.
+        </p>
+        <div id="tabs">
+          <ul
+            class="flex flex-wrap border-b border-gray-200 dark:border-gray-700"
+          >
+            <li class="mr-2 tabs rounded-t-lg" id="tab-1" data="tab-content-1">
+              <a
+                class="inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+                >Newspaper Website | Contact Form 🇩🇪</a
+              >
+            </li>
+            <li class="mr-2 tabs rounded-t-lg" id="tab-2" data="tab-content-2">
+              <a
+                class="inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+              >
+                Media Publisher | News Categories 🇬🇧</a
+              >
+            </li>
+            <!-- <li class="mr-2 tabs rounded-t-lg" id="tab-3" data="tab-content-3">
+              <a
+                class="inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+                >Onlineshop | Support Form 🇬🇧</a
+              >
+            </li> -->
+          </ul>
+          <div id="tab-content-1" class="tab-content hidden"></div>
+          <div id="tab-content-2" class="tab-content hidden">
+            <div class="p-2 font-bold">
+              <span>Categories:</span>
+              <p>Food | Politics | Science | Economy</p>
+            </div>
+          </div>
+          <div id="tab-content-3" class="tab-content hidden"></div>
         </div>
       </div>
     </div>

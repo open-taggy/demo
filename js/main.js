@@ -1,5 +1,9 @@
 import { Taggy } from "../../taggy/lib/index.js";
 
+import glossaryAbo from "../data/glossary_DE-abo.json";
+import glossaryNewspaper from "../data/glossary_EN-news.json";
+import glossaryShop from "../data/glossary_EN-shop.json";
+
 jQuery(function () {
   // create instance of taggy
   // let taggyObject = new Taggy();
@@ -7,7 +11,7 @@ jQuery(function () {
   // set input field for taggy
   let inputFieldForTaggy = document.getElementById("taggyInput");
   // taggyObject.setInputField
-  (inputFieldForTaggy);
+  inputFieldForTaggy;
   // console.log(inputFieldForTaggy);
 
   // // set output field for taggy
@@ -42,40 +46,61 @@ jQuery(function () {
   let taggyConfig = Object.keys(taggyObject.config);
   console.log("CONFIG", taggyConfig);
 
-  // create glossar visualization
-  let taggyGlossar = taggyObject.getGlossar();
-  console.log("taggyGlossar", taggyGlossar);
+  // create glossary visualization
+  let taggyGlossary = taggyObject.getGlossary();
+  console.log("taggyGlossary", taggyGlossary);
 
-  if (!$.isEmptyObject(taggyGlossar)) {
-    $("<div></div>")
-      .attr("id", "container-glossar")
-      .insertAfter("#container-input-output");
+  // glossary-tab switching
+  $(".tabs").click(function () {
+    let tabContent = $(this).attr("data");
+    let selectedTabId = $(this).attr("id");
+    console.log(tabContent);
+    $(".tab-content").addClass("hidden");
+    $(".tabs").removeClass("bg-rose-100");
+    $("#" + tabContent).removeClass("hidden");
+    $("#" + selectedTabId).addClass("bg-rose-100");
 
-    $("#container-glossar").append(
-      $("<div></div>")
-        .attr("id", "glossar")
-        .attr("class", "space-y-2")
-        .append(
-          $("<h3></h3>").attr("class", "text-rose-700 text-xl").text("Glossar")
-        )
-        .append(
-          $("<p></p>")
-            .attr("class", "text-sm")
-            .text("taggy tags your input based on these trigger words")
-        )
-    );
+    switch (selectedTabId) {
+      case "tab-1":
+        switchGlossary("1", glossaryAbo);
+        break;
+      case "tab-2":
+        switchGlossary("2", glossaryNewspaper);
+        break;
+      case "tab-3":
+        switchGlossary("3", glossaryShop);
+        break;
+    }
 
-    let glossarData = JSON.stringify(taggyGlossar, null, 2); // spacing level = 2
-    $("#glossar").append(
-      $("<pre></pre>")
-        .addClass(
-          "rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs"
-        )
-        .text(glossarData)
-    );
+    function switchGlossary(number, glossaryData) {
+      taggyObject.setGlossary(glossaryData);
 
-    // $.each(taggyGlossar, function (index, value) {});
-  }
+      if (!$("#tab-content-" + number + " #container-glossary").length) {
+        console.log("#container-glossary IS NOT inside #tab-content-" + number);
+
+        $("#tab-content-" + number).append(
+          $("<div></div>").attr("id", "container-glossary")
+        );
+
+        let glossaryDataPrint = JSON.stringify(glossaryData, null, 2); // spacing level = 2
+        $("#tab-content-" + number).append(
+          $("<pre></pre>")
+            .addClass(
+              "mt-2 rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs"
+            )
+            .text(glossaryDataPrint)
+        );
+      }
+    }
+  });
+
+  $('input[type="checkbox"]').click(function () {
+    if ($(this).prop("checked") == true) {
+      taggyObject.setOption($(this).val(), true);
+    } else {
+      taggyObject.setOption($(this).val(), false);
+    }
+  });
 
   // create options visualization
   $.each(taggyConfig, function (index, value) {
@@ -126,6 +151,10 @@ jQuery(function () {
     }
   });
 
+  $(submitButton).on("click", function () {
+    $("#extras").addClass("hidden");
+  });
+
   // give every new tag a random color
   // $('div[type="checkbox"]').click(function () {
   //   if ($(this).prop("checked") == true) {
@@ -134,4 +163,20 @@ jQuery(function () {
   //     taggyObject.setOption($(this).val(), false);
   //   }
   // });
+
+  // load tab 1 of glossary
+  $("#tab-1").trigger("click");
+
+  // check fore new inserted DOM-elements (tags)
+  $("body").on("DOMNodeInserted", ".override", function (event) {
+    $("#extras").removeClass("hidden");
+    console.log("hit for", event.target);
+    if (!($("#override-title").length > 0)) {
+      const overrideTitle = $("<h3></h3>")
+        .attr("id", "override-title")
+        .text("Multiple possibilities found. Click to override main tag:")
+        .addClass("pr-8");
+      $("#override").prepend(overrideTitle);
+    }
+  });
 });
