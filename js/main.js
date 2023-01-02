@@ -31,6 +31,9 @@ jQuery(function () {
   // get loader element (optional)
   let loaderDiv = document.getElementById("taggyLoader");
 
+  // get element for display the tag
+  let tagCloudDiv = document.getElementById("tagCloud");
+
   // create taggy instance
   let taggyObject = new Taggy(
     inputFieldForTaggy,
@@ -153,6 +156,11 @@ jQuery(function () {
 
   $(submitButton).on("click", function () {
     $("#extras").addClass("hidden");
+
+    // load tag cloud
+    let wordCloud = taggyObject.createWordCloud(tagCloudDiv);
+    console.log("WORDCLOUD");
+    console.log(wordCloud);
   });
 
   // give every new tag a random color
