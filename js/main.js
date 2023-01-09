@@ -86,7 +86,7 @@ jQuery(function () {
         $("#tab-content-" + number).append(
           $("<pre></pre>")
             .addClass(
-              "mt-2 rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-xs"
+              "mt-2 rounded-md outline outline-offset-1 outline-2 outline-gray-400 text-[0.66rem]"
             )
             .text(glossaryDataPrint)
         );

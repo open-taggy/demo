@@ -55,7 +55,7 @@
                 taggy helps you tag your content. Please enter some text below
                 to categorize it.
               </p>
-              <p class="text-sm">
+              <p class="text-sm text-rose-700">
                 Please make sure it contains some words out of the glossary.
               </p>
             </div>
@@ -82,7 +82,7 @@
               <label
                 for="taggyInput"
                 class="block col-span-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-                >Let taggy tag your articles</label
+                >Let taggy tag your input</label
               >
               <div
                 id="wrapper-category"
@@ -112,7 +112,7 @@
               id="taggyInput"
               rows="6"
               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
-              placeholder="Please enter some text..."
+              placeholder="Please enter some text containing words out of the glossary ------->"
             ></textarea>
             <div class="flex w-full content-center">
               <button
@@ -161,24 +161,24 @@
           taggy tags your input based on these trigger words
         </p>
         <p class="text-sm">
-          Here are some examples. Enter some text in the input field after
-          selection to try it out.
+          Here are two examples. You can switch between them and enter some text
+          in the input field to try it out.
         </p>
         <div id="tabs">
           <ul
-            class="flex flex-wrap border-b border-gray-200 dark:border-gray-700"
+            class="flex flex-wrap border-b border-gray-800 dark:border-gray-700"
           >
             <li class="mr-2 tabs rounded-t-lg" id="tab-1" data="tab-content-1">
               <a
-                class="inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
-                >Newspaper Website | Contact Form 🇩🇪</a
+                class="inline-block text-gray-800 hover:text-gray-300 rounded-t-lg py-4 px-4 text-xs text-center dark:text-gray-800 hover:bg-gray-800 dark:hover:text-gray-300 border-solid border-2"
+                >Newspaper Site | Contact Form 🇩🇪</a
               >
             </li>
             <li class="mr-2 tabs rounded-t-lg" id="tab-2" data="tab-content-2">
               <a
-                class="inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+                class="inline-block text-gray-800 hover:text-gray-300 rounded-t-lg py-4 px-4 text-xs text-center dark:text-gray-800 hover:bg-gray-800 dark:hover:text-gray-300 border-solid border-2"
               >
-                Media Publisher | News Categories 🇬🇧</a
+                Publisher | News Categories 🇬🇧</a
               >
             </li>
             <!-- <li class="mr-2 tabs rounded-t-lg" id="tab-3" data="tab-content-3">
@@ -188,12 +188,20 @@
               >
             </li> -->
           </ul>
-          <div id="tab-content-1" class="tab-content hidden"></div>
-          <div id="tab-content-2" class="tab-content hidden">
-            <div class="p-2 font-bold">
+          <div id="tab-content-1" class="tab-content hidden">
+            <div class="font-bold">
               <span>Categories:</span>
-              <p>Food | Politics | Science | Economy</p>
             </div>
+            <p class="text-rose-700">
+              Print-Abo | Online-Abo | ePaper-Abo | Nachsendeauftrag |
+              Reklamation
+            </p>
+          </div>
+          <div id="tab-content-2" class="tab-content hidden">
+            <div class="font-bold">
+              <span>Categories:</span>
+            </div>
+            <p class="text-rose-700">Food | Politics | Science | Economy</p>
           </div>
           <div id="tab-content-3" class="tab-content hidden"></div>
         </div>
