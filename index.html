@@ -43,21 +43,18 @@
       id="main"
       class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8"
     >
-      <div id="container-input-output" class="flex flex-col space-y-4">
+      <div id="container-input-output" class="flex flex-col space-y-4 w-1/2">
         <div id="input-output" class="space-y-8">
-          <div id="container-welcome" class="flex justify-center">
+          <div id="container-welcome" class="flex">
             <div class="w-1/5">
               <img src="./img/logo.png" alt="" />
             </div>
-            <div id="container-info" class="w-4/5 flex flex-col justify-center">
-              <h2 class="text-rose-700 text-xl">Welcome to taggy</h2>
-              <p class="text-base">
-                taggy helps you tag your content. Please enter some text below
-                to categorize it.
-              </p>
-              <p class="text-sm text-rose-700">
-                Please make sure it contains some words out of the glossary.
-              </p>
+            <div id="container-info" class="w-4/5 flex flex-col pl-4 pt-8">
+              <h2 class="text-rose-700 text-xl">taggy</h2>
+              <p class="text-base">...helps you tag your content.</p>
+              <!-- <p>
+                Try out the examples or enter some text below to categorize it.
+              </p> -->
             </div>
             <!-- <div class="rotate-90">
               <svg
@@ -75,15 +72,48 @@
           </div>
 
           <div id="container-input" class="space-y-1">
+            <div class="flex justify-around w-full content-center h-20">
+              <button
+                id="example1"
+                type="submit"
+                class="button-example inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow"
+                data-text="example1"
+              >
+                Example Text #1
+              </button>
+              <button
+                id="example2"
+                type="submit"
+                class="button-example inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow"
+                data-text="example2"
+              >
+                Example Text #2
+              </button>
+              <button
+                id="example3"
+                type="submit"
+                class="button-example inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow"
+                data-text="example3"
+              >
+                Example Text #3
+              </button>
+            </div>
             <div
               id="wrapper-form-info"
               class="w-full h-10 grid grid-rows-1 grid-flow-col grid-cols-2 gap-4"
             >
               <label
                 for="taggyInput"
-                class="block col-span-2 mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-                >Let taggy tag your input</label
-              >
+                class="block col-span-2 mb-2 text-sm font-medium text-gray-900"
+                >Try out the examples or enter some text below to categorize
+                <p
+                  id="glossary-info"
+                  class="col-span-2 mb-2 text-sm font-medium text-rose-700 hidden"
+                >
+                  Please make sure it contains words out of the glossary
+                </p>
+              </label>
+
               <div
                 id="wrapper-category"
                 class="flex flex-row w-full mb-2 content-center"
@@ -110,17 +140,17 @@
             </div>
             <textarea
               id="taggyInput"
-              rows="6"
-              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-rose-500 focus:border-rose-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
-              placeholder="Please enter some text containing words out of the glossary ------->"
+              rows="8"
+              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded border border-gray-300 focus:ring-rose-500 focus:border-rose-500"
+              placeholder="Please enter some text containing words out of the glossary"
             ></textarea>
             <div class="flex w-full content-center">
               <button
                 id="taggySubmit"
                 type="submit"
-                class="inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center text-white bg-rose-700 rounded-lg focus:ring-4 focus:ring-rose-200 dark:focus:ring-rose-900 hover:bg-rose-800"
+                class="inline-flex items-center h-8 px-5 py-2.5 text-sm font-medium text-center text-white bg-rose-700 rounded shadow focus:ring-4 focus:ring-rose-200 hover:bg-rose-800"
               >
-                Submit
+                Submit and tag
               </button>
             </div>
           </div>
@@ -135,7 +165,7 @@
             class="mt-2 p-4 rounded-md outline outline-offset-1 outline-2 outline-gray-400 rounded-t-lg bg-green-50 h"
           >
             <div id="wrapper-frequency" class="md-2">
-              <span id="frequency"></span>
+              <span id="frequency" class="text-sm"></span>
             </div>
             <div id="wrapper-override">
               <!-- <p>Top detected categories:</p> -->
@@ -143,42 +173,76 @@
             </div>
           </div>
         </div>
-        <div id="options" class="pt-4">
-          <h3 class="text-rose-700 text-xl">Options</h3>
-          <!-- <p class="text-base">
-            Some options to tune the bird.
-          </p> -->
+        <div id="options" class="pt-4 border-b-2">
+          <div id="optionsToggle" class="flow-root">
+            <h3 class="float-left text-rose-700 text-xl">Options</h3>
+            <!-- <p class="text-base">
+              Some options to tune the bird.
+            </p> -->
+            <div class="float-right w-7 h-7 text-rose-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                id="options-chevron-left"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                id="options-chevron-down"
+                class="w-6 h-6 hidden"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </div>
+          </div>
           <div
             id="container-options"
-            class="mt-2 p-4 rounded-md outline outline-offset-1 outline-2 outline-gray-400"
+            class="mt-2 p-4 rounded-md outline outline-offset-1 outline-2 outline-gray-400 hidden"
           ></div>
         </div>
       </div>
 
-      <div id="glossary" class="space-y-2">
-        <h3 class="text-rose-700 text-xl">Glossary</h3>
-        <p class="text-base">
+      <div id="glossary" class="space-y-2 pt-8">
+        <h3 class="text-rose-700 text-xl">Example Use Cases</h3>
+        <!-- <p class="text-base">
           taggy tags your input based on these trigger words
         </p>
         <p class="text-sm">
           Here are two examples. You can switch between them and enter some text
           in the input field to try it out.
-        </p>
+        </p> -->
         <div id="tabs">
           <ul
             class="flex flex-wrap border-b border-gray-800 dark:border-gray-700"
           >
-            <li class="mr-2 tabs rounded-t-lg" id="tab-1" data="tab-content-1">
+            <li class="mr-2 tabs rounded-t" id="tab-1" data="tab-content-1">
               <a
                 class="inline-block text-gray-800 hover:text-gray-300 rounded-t-lg py-4 px-4 text-xs text-center dark:text-gray-800 hover:bg-gray-800 dark:hover:text-gray-300 border-solid border-2"
-                >Newspaper Site | Contact Form 🇩🇪</a
+                >Publisher | News Categories 🇬🇧</a
               >
             </li>
-            <li class="mr-2 tabs rounded-t-lg" id="tab-2" data="tab-content-2">
+            <li class="mr-2 tabs rounded-t" id="tab-2" data="tab-content-2">
               <a
                 class="inline-block text-gray-800 hover:text-gray-300 rounded-t-lg py-4 px-4 text-xs text-center dark:text-gray-800 hover:bg-gray-800 dark:hover:text-gray-300 border-solid border-2"
               >
-                Publisher | News Categories 🇬🇧</a
+                Newspaper Site | Contact Form 🇩🇪</a
               >
             </li>
             <!-- <li class="mr-2 tabs rounded-t-lg" id="tab-3" data="tab-content-3">
@@ -189,21 +253,111 @@
             </li> -->
           </ul>
           <div id="tab-content-1" class="tab-content hidden">
-            <div class="font-bold">
-              <span>Categories:</span>
+            <div class="py-5">
+              <div class="font-bold">
+                <span>Available Categories:</span>
+              </div>
+              <div class="w-full">
+                <ul>
+                  <li>- Food</li>
+                  <li>- Politics</li>
+                  <li>- Science</li>
+                  <li>- Economy</li>
+                </ul>
+              </div>
             </div>
-            <p class="text-rose-700">
-              Print-Abo | Online-Abo | ePaper-Abo | Nachsendeauftrag |
-              Reklamation
-            </p>
+            <div class="glossary-content pt-4 border-b-2">
+              <div class="glossary-toggle flow-root">
+                <h3 class="float-left text-rose-700 text-xl">Glossary</h3>
+                <div class="float-right w-7 h-7 text-rose-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    id="glossary-chevron-left"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    id="glossary-chevron-down"
+                    class="w-6 h-6 hidden"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="tab-content-2" class="tab-content hidden">
-            <div class="font-bold">
-              <span>Categories:</span>
+            <div class="py-5">
+              <div class="font-bold">
+                <span>Available Categories:</span>
+              </div>
+              <div class="w-full">
+                <!-- <p class="text-rose-700">Food | Politics | Science | Economy</p> -->
+                <ul>
+                  <li>- Print-Abo</li>
+                  <li>- Online-Abo</li>
+                  <li>- ePaper-Abo</li>
+                  <li>- Nachsendeauftrag</li>
+                </ul>
+              </div>
             </div>
-            <p class="text-rose-700">Food | Politics | Science | Economy</p>
+            <div class="glossary-content pt-4 border-b-2">
+              <div class="glossary-toggle flow-root">
+                <h3 class="float-left text-rose-700 text-xl">Glossary</h3>
+                <div class="float-right w-7 h-7 text-rose-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    id="glossary-chevron-left"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    id="glossary-chevron-down"
+                    class="w-6 h-6 hidden"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div id="tab-content-3" class="tab-content hidden"></div>
           </div>
-          <div id="tab-content-3" class="tab-content hidden"></div>
         </div>
       </div>
     </div>
