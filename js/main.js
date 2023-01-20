@@ -54,7 +54,7 @@ jQuery(function () {
 
   // create glossary visualization
   let taggyGlossary = taggyObject.getGlossary();
-  console.log("taggyGlossary", taggyGlossary);
+  // console.log("taggyGlossary", taggyGlossary);
 
   // glossary-tab switching
   $(".tabs").click(function () {
@@ -100,17 +100,20 @@ jQuery(function () {
     ) {
       $("#taggyInput").val(example1);
       $("#example1").data("text", example1);
-      $("#example1").prop("disabled", true);
-      $("#example1").addClass("opacity-50 cursor-not-allowed");
       $("#example2").data("text", example2);
       $("#example3").data("text", example3);
 
+      $(".button-example").removeClass("opacity-50 cursor-not-allowed");
+      $(".button-example").prop("disabled", false);
+      $("#example1").prop("disabled", true);
+      $("#example1").addClass("opacity-50 cursor-not-allowed");
+
       taggyObject.deleteTags();
-      $("#extras").addClass("hidden");
+      $("#extras, #glossary-info").addClass("hidden");
       taggyObject.setGlossary(glossaryData);
 
       if (!$("#tab-content-" + number + " #container-glossary").length) {
-        console.log("#container-glossary IS NOT inside #tab-content-" + number);
+        // console.log("#container-glossary IS NOT inside #tab-content-" + number);
 
         let glossaryDataPrint = JSON.stringify(glossaryData, null, 2); // spacing level = 2
         // $("#tab-content-" + number)
@@ -147,6 +150,10 @@ jQuery(function () {
     let commentText = null;
     if (nextElement[0] && nextElement[0].includes("comment")) {
       commentText = taggyObject.config[nextElement[0]];
+    }
+
+    if (value.includes("waittime") || value.includes("tagify")) {
+      return;
     }
 
     if (!value.includes("comment")) {
@@ -190,12 +197,12 @@ jQuery(function () {
   });
 
   $(submitButton).on("click", function () {
-    $("#extras").addClass("hidden");
+    $("#extras, #glossary-info").addClass("hidden");
   });
 
   $(".button-example").on("click", function () {
     taggyObject.deleteTags();
-    $("#extras").addClass("hidden");
+    $("#extras, #glossary-info").addClass("hidden");
     console.log("this", this);
     console.log("data-text", $(this).data("text"));
     $(".button-example").removeClass("opacity-50 cursor-not-allowed");
@@ -243,5 +250,9 @@ jQuery(function () {
         .addClass("pr-8 text-sm");
       $("#override").prepend(overrideTitle);
     }
+  });
+  $("body").on("DOMNodeInserted", ".tag-not-found", function (event) {
+    console.log("hit for", event.target);
+    $("#glossary-info").removeClass("hidden");
   });
 });

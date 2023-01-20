@@ -1,8 +1,8 @@
 {
   "tags": [
     {
-      "name": "Food",
-      "words": [
+      "category": "Food",
+      "keywords": [
         "A la carte",
         "A la grecque",
         "A point",
@@ -407,8 +407,8 @@
       ]
     },
     {
-      "name": "Politics",
-      "words": [
+      "category": "Politics",
+      "keywords": [
         "Absentee Voting",
         "Act",
         "Adjourn",
@@ -667,8 +667,8 @@
       ]
     },
     {
-      "name": "Science",
-      "words": [
+      "category": "Science",
+      "keywords": [
         "Academies of science",
         "Accident prevention",
         "Accidents",
@@ -1556,8 +1556,8 @@
       ]
     },
     {
-      "name": "Economy",
-      "words": [
+      "category": "Economy",
+      "keywords": [
         "401a Retirement Plan",
         "401k Retirement Plan",
         "403b Retirement Plan",
