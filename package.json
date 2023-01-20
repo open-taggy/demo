@@ -1,6 +1,6 @@
 {
   "name": "taggy-demo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "keywords": [],
   "license": "",
@@ -11,7 +11,7 @@
     "taildev": "npm run dev && npx tailwindcss -i ./css/main.css -o ./dist/output.css --watch",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy-gh": "rm docs/* && parcel build index.html --dist-dir docs --no-optimize --public-url ./"
+    "deploy-gh": "parcel build index.html --dist-dir docs --no-optimize --public-url ./"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
