@@ -21052,6 +21052,7 @@ var $24950bff9801a4eb$exports = {};
 $24950bff9801a4eb$exports = JSON.parse('{"tags":[{"category":"Returnment","keywords":["return","shipment","reposit"]},{"category":"Feedback","keywords":["love","great work","fan"]},{"category":"Account Information","keywords":["information","account"]}]}');
 
 
+let $d14dcff871c6b756$var$example1, $d14dcff871c6b756$var$example2, $d14dcff871c6b756$var$example3;
 jQuery(function() {
     // create instance of taggy
     // let taggyObject = new Taggy();
@@ -21095,27 +21096,27 @@ jQuery(function() {
         $("#" + selectedTabId).addClass("bg-rose-100");
         switch(selectedTabId){
             case "tab-1":
-                example1 = "Pepperoni pizza is a classic favorite among pizza lovers. It is made with a tomato sauce base, cheese, and slices of pepperoni, a type of spicy salami. Pepperoni is a popular topping due to its spicy and savory flavor. Whether you're ordering in or making your own, it's a delicious and satisfying meal.";
-                example2 = "Environmental awareness is the understanding and recognition of the impact of human actions on the natural world. It is important to be mindful of the ways in which our daily choices and habits can harm the environment and make efforts to reduce our impact. Simple actions such as reducing, reusing, and recycling can make a significant difference in preserving the planet for future generations. By raising environmental awareness, which is also part of the politics, we can work together to create a sustainable future for all.";
-                example3 = "A growth recession is a period of economic decline characterized by low or negative GDP growth. It is different from a typical recession in which there is a significant decrease in economic activity, but still positive GDP growth. Economic growth recessions are often caused by a combination of factors such as global economic slowdown, tight monetary policies, and political instability. To mitigate the effects of growth recession, governments and central banks may implement policies such as monetary stimulus and fiscal stimulus.";
-                switchGlossary("1", (0, (/*@__PURE__*/$parcel$interopDefault($8e59844428161339$exports))), example1, example2, example3);
+                $d14dcff871c6b756$var$example1 = "Pepperoni pizza is a classic favorite among pizza lovers. It is made with a tomato sauce base, cheese, and slices of pepperoni, a type of spicy salami. Pepperoni is a popular topping due to its spicy and savory flavor. Whether you're ordering in or making your own, it's a delicious and satisfying meal.";
+                $d14dcff871c6b756$var$example2 = "Environmental awareness is the understanding and recognition of the impact of human actions on the natural world. It is important to be mindful of the ways in which our daily choices and habits can harm the environment and make efforts to reduce our impact. Simple actions such as reducing, reusing, and recycling can make a significant difference in preserving the planet for future generations. By raising environmental awareness, which is also part of the politics, we can work together to create a sustainable future for all.";
+                $d14dcff871c6b756$var$example3 = "A growth recession is a period of economic decline characterized by low or negative GDP growth. It is different from a typical recession in which there is a significant decrease in economic activity, but still positive GDP growth. Economic growth recessions are often caused by a combination of factors such as global economic slowdown, tight monetary policies, and political instability. To mitigate the effects of growth recession, governments and central banks may implement policies such as monetary stimulus and fiscal stimulus.";
+                switchGlossary("1", (0, (/*@__PURE__*/$parcel$interopDefault($8e59844428161339$exports))), $d14dcff871c6b756$var$example1, $d14dcff871c6b756$var$example2, $d14dcff871c6b756$var$example3);
                 break;
             case "tab-2":
-                example1 = "Ich habe eure Zeitung bestellt und sie landet nie da, wo sie hin soll. Das ist eine Frechheit!";
-                example2 = "Guten Tag. Wir verreisen ins Ausland. Deswegen bitte um Nachsendung der Zeitung an die neue Adresse: ...";
-                example3 = "Hallo. Auf meinem ereader wird das PDF einfach nicht richtig dargestellt. Bitte um R\xfcckmeldung.";
-                switchGlossary("2", (0, (/*@__PURE__*/$parcel$interopDefault($b18ee538a1ef55e3$exports))), example1, example2, example3);
+                $d14dcff871c6b756$var$example1 = "Ich habe eure Zeitung bestellt und sie landet nie da, wo sie hin soll. Das ist eine Frechheit!";
+                $d14dcff871c6b756$var$example2 = "Guten Tag. Wir verreisen ins Ausland. Deswegen bitte um Nachsendung der Zeitung an die neue Adresse: ...";
+                $d14dcff871c6b756$var$example3 = "Hallo. Auf meinem ereader wird das PDF einfach nicht richtig dargestellt. Bitte um R\xfcckmeldung.";
+                switchGlossary("2", (0, (/*@__PURE__*/$parcel$interopDefault($b18ee538a1ef55e3$exports))), $d14dcff871c6b756$var$example1, $d14dcff871c6b756$var$example2, $d14dcff871c6b756$var$example3);
                 break;
             case "tab-3":
-                switchGlossary("3", (0, (/*@__PURE__*/$parcel$interopDefault($24950bff9801a4eb$exports))), example1, example2, example3);
+                switchGlossary("3", (0, (/*@__PURE__*/$parcel$interopDefault($24950bff9801a4eb$exports))), $d14dcff871c6b756$var$example1, $d14dcff871c6b756$var$example2, $d14dcff871c6b756$var$example3);
                 presentInput = "";
                 break;
         }
-        function switchGlossary(number, glossaryData, example11, example21, example31) {
-            $("#taggyInput").val(example11);
-            $("#example1").data("text", example11);
-            $("#example2").data("text", example21);
-            $("#example3").data("text", example31);
+        function switchGlossary(number, glossaryData, example1, example2, example3) {
+            $("#taggyInput").val(example1);
+            $("#example1").data("text", example1);
+            $("#example2").data("text", example2);
+            $("#example3").data("text", example3);
             $(".button-example").removeClass("opacity-50 cursor-not-allowed");
             $(".button-example").prop("disabled", false);
             $("#example1").prop("disabled", true);
@@ -21215,4 +21216,4 @@ jQuery(function() {
 });
 
 })();
-//# sourceMappingURL=index.2a836307.js.map
+//# sourceMappingURL=index.19ca995c.js.map
