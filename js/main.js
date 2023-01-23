@@ -40,19 +40,20 @@ jQuery(function () {
     submitButton,
     frequencySpan,
     overrideSpan,
-    loaderDiv
+    loaderDiv,
+    { use_submit: true }
   );
 
   // use submit button instead of auto-detection
-  taggyObject.config.use_submit = true;
+  // taggyObject.options.use_submit = true;
 
-  // console.log(taggyObject.config);
+  // console.log(taggyObject.options);
 
   let optionsToggle = document.getElementById("optionsToggle");
   let glossaryToggle = $(".glossary-toggle");
 
-  let taggyConfig = Object.keys(taggyObject.config);
-  console.log("CONFIG", taggyConfig);
+  let taggyOptions = Object.keys(taggyObject.options);
+  console.log("OPTIONS", taggyOptions);
 
   // create glossary visualization
   let taggyGlossary = taggyObject.getGlossary();
@@ -62,7 +63,6 @@ jQuery(function () {
   $(".tabs").click(function () {
     let tabContent = $(this).attr("data");
     let selectedTabId = $(this).attr("id");
-    console.log(tabContent);
     $(".tab-content").addClass("hidden");
     $(".tabs").removeClass("bg-rose-100");
     $("#" + tabContent).removeClass("hidden");
@@ -146,39 +146,56 @@ jQuery(function () {
   });
 
   // create options visualization
-  $.each(taggyConfig, function (index, value) {
+  $.each(taggyOptions, function (index, value) {
     let labelText = " " + value;
-    let nextElement = $(taggyConfig).eq(index + 1);
-    let commentText = null;
-    if (nextElement[0] && nextElement[0].includes("comment")) {
-      commentText = taggyObject.config[nextElement[0]];
-    }
+    let nextElement = $(taggyOptions).eq(index + 1);
+    let commentText = "";
 
-    if (value.includes("waittime") || value.includes("tagify")) {
+    if (
+      value.includes("tagify") ||
+      value.includes("waittime") ||
+      value.includes("categories") ||
+      value.includes("message_not_found")
+    ) {
       return;
     }
 
-    if (!value.includes("comment")) {
-      let checkbox = $("#container-options")
-        .append(
-          $("<input></input>")
-            .attr("type", "checkbox")
-            .attr("id", value)
-            .val(value)
-        )
-        .append(
-          $("<label></label>").addClass("text-sm font-bold").text(labelText)
-        );
-      if (commentText) {
-        checkbox.append(
-          $("<p></p>").addClass("text-justify text-xs").text(commentText)
-        );
-      }
-      checkbox.append("</br>");
+    if (value.includes("use_submit")) {
+      commentText =
+        "true -> analyze input while typing / false -> use of submit button to process ('submitButton' has to be defined) | default: false";
+    }
+    if (value.includes("assign_top")) {
+      commentText =
+        "true -> return category of found keyword / false -> return the keyword itself | default: true";
+    }
+    if (value.includes("include_top")) {
+      commentText =
+        "Include name of the categories themself as keywords | default: false";
+    }
+    if (value.includes("openthesaurus")) {
+      commentText =
+        "Add call to openthesaurus API to enrich words (experimental) | default: false";
+    }
 
-      if (taggyObject.config[value]) {
-        $("#" + value).prop("checked", true);
-      }
+    let checkbox = $("#container-options")
+      .append(
+        $("<input></input>")
+          .attr("type", "checkbox")
+          .attr("id", value)
+          .val(value)
+      )
+      .append(
+        $("<label></label>").addClass("text-sm font-bold").text(labelText)
+      );
+    if (commentText) {
+      checkbox.append(
+        $("<p></p>").addClass("text-justify text-xs").text(commentText)
+      );
+    }
+    checkbox.append("</br>");
+
+    if (taggyObject.options[value]) {
+      $("#" + value).prop("checked", true);
     }
   });
 
@@ -254,7 +271,6 @@ jQuery(function () {
     }
   });
   $("body").on("DOMNodeInserted", ".tag-not-found", function (event) {
-    console.log("hit for", event.target);
     $("#glossary-info").removeClass("hidden");
   });
 });
