@@ -52,7 +52,7 @@ jQuery(function () {
   let optionsToggle = document.getElementById("optionsToggle");
   let glossaryToggle = $(".glossary-toggle");
 
-  let taggyOptions = Object.keys(taggyObject.options);
+  let taggyOptions = Object.keys(taggyObject.getOptions());
   console.log("OPTIONS", taggyOptions);
 
   // create glossary visualization
@@ -152,7 +152,6 @@ jQuery(function () {
     let commentText = "";
 
     if (
-      value.includes("tagify") ||
       value.includes("waittime") ||
       value.includes("categories") ||
       value.includes("message_not_found")
