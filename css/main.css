@@ -18,12 +18,20 @@
   @apply text-xs inline-flex items-center font-bold uppercase px-3 py-2 bg-blue-200 text-blue-700 rounded-full border-2 border-blue-300;
 }
 
-.override {
+.taggy-override {
   @apply bg-emerald-200 text-emerald-800 border-emerald-300 hover:bg-emerald-100 mr-1 cursor-pointer;
 }
 
+.taggy-frequency {
+  @apply bg-yellow-200 text-yellow-800 border-yellow-300 hover:bg-yellow-100 mr-2 border;
+}
+
 .override-title {
-  @apply text-base grow
+  @apply text-base grow;
+}
+
+.frequency-title {
+  @apply mb-4 pb-4;
 }
 
 .not-found {
@@ -108,34 +116,6 @@ animation: spin 1s linear infinite;
 /* #wrapper-category {
   width: 300px;
 } */
-
-#wrapper-frequency {
-  height: 40px;
-  /* background-color: #b3d4fc; */
-  border-radius: 10px;
-}
-
-#wrapper-override {
-  height: 40px;
-  /* background-color: #b3d4fc; */
-  border-radius: 10px;
-  width: 100%;
-}
-
-#override {
-  border: none;
-  width: 100%;
-}
-
-.bold-center {
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-#results {
-  background-color: white;
-}
 
 /* TOGGLE BUTTONS
 

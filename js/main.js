@@ -12,8 +12,6 @@ jQuery(function () {
 
   // set input field for taggy
   let inputFieldForTaggy = document.getElementById("taggyInput");
-  // taggyObject.setInputField
-  inputFieldForTaggy;
   // console.log(inputFieldForTaggy);
 
   // // set output field for taggy
@@ -34,26 +32,23 @@ jQuery(function () {
   let loaderDiv = document.getElementById("taggyLoader");
 
   // create taggy instance
-  let taggyObject = new Taggy(
-    inputFieldForTaggy,
-    outputFieldForTaggy,
-    submitButton,
-    frequencySpan,
-    overrideSpan,
-    loaderDiv,
-    { use_submit: true }
-  );
+  let taggyObject = new Taggy(inputFieldForTaggy, outputFieldForTaggy, {
+    overrideOutput: overrideSpan,
+    loaderElement: loaderDiv,
+    frequencyOutput: frequencySpan,
+    submitButton: submitButton,
+  });
 
   // use submit button instead of auto-detection
-  // taggyObject.options.use_submit = true;
+  // taggyObject.options.useSubmit = true;
 
   // console.log(taggyObject.options);
 
   let optionsToggle = document.getElementById("optionsToggle");
   let glossaryToggle = $(".glossary-toggle");
 
+  console.log("OPTIONS", taggyObject.getOptions());
   let taggyOptions = Object.keys(taggyObject.getOptions());
-  console.log("OPTIONS", taggyOptions);
 
   // create glossary visualization
   let taggyGlossary = taggyObject.getGlossary();
@@ -154,20 +149,24 @@ jQuery(function () {
     if (
       value.includes("waittime") ||
       value.includes("categories") ||
-      value.includes("message_not_found")
+      value.includes("submitButton") ||
+      value.includes("frequencyOutput") ||
+      value.includes("overrideOutput") ||
+      value.includes("loaderElement") ||
+      value.includes("messageNotFound")
     ) {
       return;
     }
 
-    if (value.includes("use_submit")) {
+    if (value.includes("useSubmit")) {
       commentText =
         "true -> analyze input while typing / false -> use of submit button to process ('submitButton' has to be defined) | default: false";
     }
-    if (value.includes("assign_top")) {
+    if (value.includes("assignTop")) {
       commentText =
         "true -> return category of found keyword / false -> return the keyword itself | default: true";
     }
-    if (value.includes("include_top")) {
+    if (value.includes("includeTop")) {
       commentText =
         "Include name of the categories themself as keywords | default: false";
     }
@@ -258,15 +257,25 @@ jQuery(function () {
   $("#tab-1").trigger("click");
 
   // check fore new inserted DOM-elements (tags)
-  $("body").on("DOMNodeInserted", ".override", function (event) {
+  $("body").on("DOMNodeInserted", ".taggy-override", function (event) {
     $("#extras").removeClass("hidden");
+
     console.log("hit for", event.target);
     if (!($("#override-title").length > 0)) {
       const overrideTitle = $("<h3></h3>")
         .attr("id", "override-title")
         .text("Multiple possibilities found. Click to override main tag:")
-        .addClass("pr-8 text-sm");
+        .addClass("pr-8 text-sm col-span-1");
       $("#override").prepend(overrideTitle);
+    }
+  });
+  $("body").on("DOMNodeInserted", ".taggy-frequency", function (event) {
+    if (!($("#frequency-title").length > 0)) {
+      const frequencyTitle = $("<h3></h3>")
+        .attr("id", "frequency-title")
+        .text("Most frequent words:")
+        .addClass("pr-8 text-sm");
+      $("#frequency").prepend(frequencyTitle);
     }
   });
   $("body").on("DOMNodeInserted", ".tag-not-found", function (event) {
