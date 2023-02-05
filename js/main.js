@@ -65,25 +65,48 @@ jQuery(function () {
 
     switch (selectedTabId) {
       case "tab-1":
+        language = "en";
         example1 =
           "Pepperoni pizza is a classic favorite among pizza lovers. It is made with a tomato sauce base, cheese, and slices of pepperoni, a type of spicy salami. Pepperoni is a popular topping due to its spicy and savory flavor. Whether you're ordering in or making your own, it's a delicious and satisfying meal.";
         example2 =
           "Environmental awareness is the understanding and recognition of the impact of human actions on the natural world. It is important to be mindful of the ways in which our daily choices and habits can harm the environment and make efforts to reduce our impact. Simple actions such as reducing, reusing, and recycling can make a significant difference in preserving the planet for future generations. By raising environmental awareness, which is also part of the politics, we can work together to create a sustainable future for all.";
         example3 =
           "A growth recession is a period of economic decline characterized by low or negative GDP growth. It is different from a typical recession in which there is a significant decrease in economic activity, but still positive GDP growth. Economic growth recessions are often caused by a combination of factors such as global economic slowdown, tight monetary policies, and political instability. To mitigate the effects of growth recession, governments and central banks may implement policies such as monetary stimulus and fiscal stimulus.";
-        switchGlossary("1", glossaryNewspaper, example1, example2, example3);
+        switchGlossary(
+          "1",
+          glossaryNewspaper,
+          language,
+          example1,
+          example2,
+          example3
+        );
         break;
       case "tab-2":
+        language = "de";
         example1 =
           "Ich habe eure Zeitung bestellt und sie landet nie da, wo sie hin soll. Das ist eine Frechheit!";
         example2 =
           "Guten Tag. Wir verreisen ins Ausland. Deswegen bitte um Nachsendung der Zeitung an die neue Adresse: ...";
         example3 =
           "Hallo. Auf meinem ereader wird das PDF einfach nicht richtig dargestellt. Bitte um Rückmeldung.";
-        switchGlossary("2", glossaryAbo, example1, example2, example3);
+        switchGlossary(
+          "2",
+          glossaryAbo,
+          language,
+          example1,
+          example2,
+          example3
+        );
         break;
       case "tab-3":
-        switchGlossary("3", glossaryShop, example1, example2, example3);
+        switchGlossary(
+          "3",
+          glossaryShop,
+          language,
+          example1,
+          example2,
+          example3
+        );
         presentInput = "";
         break;
     }
@@ -91,6 +114,7 @@ jQuery(function () {
     function switchGlossary(
       number,
       glossaryData,
+      language,
       example1,
       example2,
       example3
@@ -108,6 +132,7 @@ jQuery(function () {
       taggyObject.deleteTags();
       $("#extras, #glossary-info").addClass("hidden");
       taggyObject.setGlossary(glossaryData);
+      taggyObject.setLanguage(language);
 
       if (!$("#tab-content-" + number + " #container-glossary").length) {
         // console.log("#container-glossary IS NOT inside #tab-content-" + number);
