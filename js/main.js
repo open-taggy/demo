@@ -1,4 +1,5 @@
 import { Taggy } from "../../taggy/lib/index.js";
+// import { Taggy } from "@b1tsteller/taggy";
 
 import glossaryAbo from "../data/glossary_DE-abo.json";
 import glossaryNewspaper from "../data/glossary_EN-news.json";
@@ -175,6 +176,7 @@ jQuery(function () {
       value.includes("waittime") ||
       value.includes("categories") ||
       value.includes("submitButton") ||
+      value.includes("language") ||
       value.includes("frequencyOutput") ||
       value.includes("overrideOutput") ||
       value.includes("loaderElement") ||
