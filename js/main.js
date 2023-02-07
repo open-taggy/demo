@@ -5,7 +5,7 @@ import glossaryAbo from "../data/glossary_DE-abo.json";
 import glossaryNewspaper from "../data/glossary_EN-news.json";
 import glossaryShop from "../data/glossary_EN-shop.json";
 
-let example1, example2, example3;
+let example1, example2, example3, language;
 
 jQuery(function () {
   // create instance of taggy
