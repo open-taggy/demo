@@ -671,12 +671,12 @@ img, video {
   padding-left: 1rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
-}
-
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .pr-8 {
@@ -701,14 +701,14 @@ img, video {
   line-height: 1.5rem;
 }
 
-.text-sm {
-  font-size: .875rem;
-  line-height: 1.25rem;
-}
-
 .text-xs {
   font-size: .75rem;
   line-height: 1rem;
+}
+
+.text-sm {
+  font-size: .875rem;
+  line-height: 1.25rem;
 }
 
 .text-\[0\.66rem\] {
@@ -1142,6 +1142,10 @@ textarea {
     margin-right: calc(2rem * var(--tw-space-x-reverse));
     margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)) );
   }
+
+  .md\:pt-8 {
+    padding-top: 2rem;
+  }
 }
 
-/*# sourceMappingURL=index.edb70954.css.map */
+/*# sourceMappingURL=index.23043178.css.map */
