@@ -38,6 +38,7 @@ jQuery(function () {
     loaderElement: loaderDiv,
     frequencyOutput: frequencySpan,
     submitButton: submitButton,
+    messageNotFound: "no tag found",
   });
 
   // use submit button instead of auto-detection
@@ -131,7 +132,8 @@ jQuery(function () {
       $("#example1").addClass("opacity-50 cursor-not-allowed");
 
       taggyObject.deleteTags();
-      $("#extras, #glossary-info").addClass("hidden");
+      $("#extras, #glossary-info-warning").addClass("hidden");
+      $("#glossary-info-default").removeClass("hidden");
       taggyObject.setGlossary(glossaryData);
       taggyObject.setLanguage(language);
 
@@ -241,12 +243,14 @@ jQuery(function () {
   });
 
   $(submitButton).on("click", function () {
-    $("#extras, #glossary-info").addClass("hidden");
+    $("#extras, #glossary-info-warning").addClass("hidden");
+    $("#glossary-info-default").removeClass("hidden");
   });
 
   $(".button-example").on("click", function () {
     taggyObject.deleteTags();
-    $("#extras, #glossary-info").addClass("hidden");
+    $("#extras, #glossary-info-warning").addClass("hidden");
+    $("#glossary-info-default").removeClass("hidden");
     console.log("this", this);
     console.log("data-text", $(this).data("text"));
     $(".button-example").removeClass("opacity-50 cursor-not-allowed");
@@ -306,6 +310,7 @@ jQuery(function () {
     }
   });
   $("body").on("DOMNodeInserted", ".tag-not-found", function (event) {
-    $("#glossary-info").removeClass("hidden");
+    $("#glossary-info-warning").removeClass("hidden");
+    $("#glossary-info-default").addClass("hidden");
   });
 });
