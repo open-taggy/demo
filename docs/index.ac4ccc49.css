@@ -1146,6 +1146,11 @@ textarea {
   .md\:pt-8 {
     padding-top: 2rem;
   }
+
+  .md\:text-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
 }
 
-/*# sourceMappingURL=index.23043178.css.map */
+/*# sourceMappingURL=index.ac4ccc49.css.map */
